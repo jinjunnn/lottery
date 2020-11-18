@@ -1,0 +1,11 @@
+<!--pages/user/qrcode/qrcode.wxml-->
+<view class="content">
+    <!-- <view class="user_wrap">
+        <view>
+            <image src="{{user}}"></image>
+        </view>
+    </view> -->
+    <view style="font-size:24rpx;padding:24rpx">{{wechat_group_ad_title}}</view>
+    <image src='{{wechat_group_image}}' style="height:550rpx; width:550rpx"></image>
+    <view style="font-size:24rpx;text-align: center;padding:24rpx">{{wechat_group_ad_content}}</view>
+</view>

@@ -1,0 +1,35 @@
+page {
+    background-color: #f2f2f2;
+}
+
+.wrap {
+    margin: 20rpx;
+}
+
+.item_wrap {
+    padding: 20rpx;
+    display: -webkit-flex;
+    border-radius: 10rpx;
+    background-color: white;
+    margin-bottom: 10rpx;
+}
+
+.image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 10rpx;
+}
+
+.content_wrap {
+    padding: 10rpx;
+    width: 510rpx;
+}
+
+.title {
+    font-size: 26rpx;
+}
+
+.content {
+    font-size: 24rpx;
+    color: gray;
+}

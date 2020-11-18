@@ -1,0 +1,172 @@
+<view class="{{backgroundColor}}" catchtouchmove="true">
+	<view class="commodity_screen" wx:if="{{showModalStatus==6}}" touchmove="bind_close">
+		<view class="modal_wrap">
+			<view class="title">
+				{{settings.customer_service_name}}
+			</view>
+			<view class="sub_title">
+				<!-- {{result.title}} -->
+			</view>
+			<view          >
+				<image class="model_image" src="{{settings.customer_service_qrcode}}" mode="aspectFill" lazy-load="true"
+					binderror="" bindload="">
+
+				</image>
+				<view class="model_content">
+					<!-- {{result.content}} -->
+				</view>
+
+			</view>
+		</view>
+		<view class="modal_btn_wrap">
+			<view class="button_wrap">
+				<button class="left_button" bindtap="bind_close" data-message="{{settings.customer_service_wechatid}}">
+					暂不需要
+				</button>
+				<button class="right_button" bindtap="bind_close">
+					关闭
+				</button>
+			</view>
+			<view class="heihei">
+				{{settings.customer_service_content}}
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 未获取到数据显示空白 -->
+<view wx:if="{{display==false}}">
+
+</view>
+<!-- 加载到数据后显示加载数据的内容 -->
+<view wx:elif="{{display==true}}">
+	<view style="background-color:#ffffff;  border-radius: 10rpx;margin:20rpx">
+		<view style="margin: 0rpx 50rpx 100rpx 50rpx;padding-top: 30rpx;">
+			<navigator url="./setting/setting">
+				<view style="display: -webkit-flex;justify-content: space-between;">
+					<view style="margin-top: 5rpx;flex: 5;">
+						<view style="font-size:20pt;" class="title_item" wx:if="{{user.nickName}}">{{user.nickName}}</view>
+						<view style="font-size:13pt; margin-top:5rpx;margin-bottom: 20rpx;">
+							<span id="changestyle">ID:{{user.uid}}</span>
+						</view>
+					</view>
+					<view class="item_author_icon">
+						<image wx:if="{{user.image}}" src="{{user.image}}" class="author_icon_item"
+							style=" width:120rpx; height:120rpx;border-radius: 50%" mode="scaleToFill"></image>
+						<image wx:else src="{{icon_user}}" class="author_icon_item"
+							style=" width:120rpx; height:120rpx;border-radius: 50%" mode="scaleToFill"></image>
+					</view>
+				</view>
+			</navigator>
+		</view>
+
+			<view class="author">
+				<view class="author_title" bindtap="bind_balance">
+						<view style="font-size:10pt;" class="title_item">金币</view>
+						<view style="font-size:10pt;" 
+							class="title_item">{{user.balance}}</view>
+				</view>
+				<view class="author_title" bindtap="bind_intergal">
+						<view style="font-size:10pt;" class="title_item">银币</view>
+						<view style="font-size:10pt;" 
+							class="title_item">{{user.i_balance}}</view>
+
+				</view>
+				<view class="author_title" bindtap="bind_nav" data-url="./record/intergal">
+						<view style="font-size:10pt;" class="title_item">积分</view>
+						<view style="font-size:10pt;" 
+							class="title_item">{{user.f_balance}}</view>
+
+				</view>
+			</view>
+	</view>
+		<view class="first" wx:if="{{settings.verify==1}}">
+			<view class="second_b">
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/limit">
+					<image class="second_image" src="/image/icon03.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						限定助力记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/group">
+					<image class="second_image" src="/image/icon01.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						群抽奖记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/record?records=record_20_">
+					<image class="second_image" src="/image/icon02.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						0元抽记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="/pages/handsel/list">
+					<image class="second_image" src="/image/icon04.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						0元砍记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/exchange">
+					<image class="second_image" src="/image/icon03.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						领奖记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/record?records=record_19_">
+					<image class="second_image" src="/image/icon01.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						视频抽奖记录
+					</view>
+				</view>
+				<view bindtap="bind_nav" class="items_wrap" data-url="./record/intergal">
+					<image class="second_image" src="/image/icon04.png" lazy-load="false" binderror="" bindload=""></image>
+					<view class="first_text">
+						积分记录
+					</view>
+				</view>
+			</view>
+		</view>
+	<view style="background-color: #ffffff; border-radius: 10rpx; margin:20rpx;">
+		<view style="padding:20rpx"         bindtap="bind_contact">
+			<view style="display: -webkit-flex;justify-content: space-between;">
+				<view style="display: -webkit-flex;">
+					<view>
+						<image style="height:90rpx; width:90rpx;margin-top:8rpx; border-radius: 50%;"
+							src="/image/客服.png"
+							mode="widthFix" lazy-load="false" binderror="" bindload="">
+
+						</image>
+					</view>
+					<view style="font-size:28rpx;padding-top:30rpx;padding-left:20rpx">
+						客服
+					</view>
+				</view>
+				<view style="width:180rpx">
+					<button style="width: 170rpx;font-size: 24rpx;border-radius: 10rpx;color: white;background-color: rgb(18, 132, 137);margin: 25rpx 15rpx 0rpx 20rpx;"  bindtap='' data-index="{{index}}">
+						联系我
+					</button>
+				</view>
+
+			</view>
+		</view>
+	</view>
+	<view style="margin:20rpx;padding:30rpx; background-color: #ffffff; border-radius: 10rpx;">
+		<cell bind:startmessage='startmessage' bind:completemessage="completemessage"
+			plugid='40adc8fd8b938235d9bb67e1a049399c' />
+	</view>
+	<view style="margin:20rpx">
+		<ad unit-id="adunit-d7fdf4c88da3a2fc" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+	</view>
+	<view class="end">
+		<view  >
+
+		</view>
+		<text   selectable="false" space="false" decode="false">
+			-----END-----
+			100%正品的免费抽奖平台
+			中奖锚定指定第三方数据，完全公开公正
+
+
+		</text>
+	</view>
+	<view style="height:30rpx"></view>
+</view>

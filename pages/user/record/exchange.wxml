@@ -1,0 +1,65 @@
+<view wx:for="{{list}}" wx:key="item">
+    <view class="handsel_wrap" >
+        <view class="bottomer" bindtap="bind_nav" data-id='{{item.id}}'>
+            订单编号:{{item.id}}(点击复制)
+        </view>
+        <view class="title"  >
+            <view class="title_image_wrap">
+                <image src="{{item.attributes.image}}" class="banner_image"></image>
+            </view>
+            <view class="title_content_wrap">
+                <view class='text_name'>{{item.attributes.name}}</view>
+                <view class="text_detail"  >
+                    {{item.attributes.price}}元 
+                </view>
+                <!-- 已经完成砍价 -->
+                <block wx:if="{{item.attributes.type==2}}">
+                    <view class="button_text">
+                        0元抽获得。{{item.attributes.period}}期次中奖。（积分抽奖采用第三方开奖数据确保公正）
+                    </view>
+                </block>
+                <block wx:elif='{{item.attributes.type==1}}'>
+                    <view class="button_text">
+                        0元砍获得。邀请好友砍价{{item.attributes.times}}次获得。
+                    </view>
+                </block>
+                <block wx:elif='{{item.attributes.type==3}}'>
+                    <view class="button_text">
+                        限定砍获得。
+                    </view>
+                </block>
+                <block wx:elif='{{item.attributes.type==4}}'>
+                    <view class="button_text">
+                        群抽奖获得。
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="bottomer">
+            <view>
+                <view wx:if='{{item.attributes.send}}'>
+                    已发货
+                </view>
+                <view wx:else>
+                    备货中
+                </view>
+            </view>
+            <view>
+                <view wx:if='{{item.attributes.send}}'>
+                    快递单号:{{item.attributes.mail_id}}
+                </view>
+                <view wx:else>
+                    快递单号:暂未发货
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view style='font-size: 22rpx;text-align:center;color:white;margin:20rpx;'  >
+    <text name="" id="" cols="30" rows="10"></text>
+    请联系客服设置收货地址。
+    国内商品的发货时间15个工作日内。
+    跨境海淘商品的发货时间约为30个工作日。
+</view>
+<view style='height:100rpx'></view>

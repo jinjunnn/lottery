@@ -1,0 +1,180 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.1",
+	"appid": "wxb32b1b0910b78a77",
+	"projectname": "lottery",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/lottery/detail/detail",
+					"pathName": "pages/lottery/detail/detail",
+					"query": "id=21996884",
+					"scene": 1008
+				},
+				{
+					"id": 1,
+					"name": "pages/sharer/sharer",
+					"pathName": "pages/share/share",
+					"query": "sharer=10000005&ticket=1391029121925",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/wish/detail/detail",
+					"pathName": "pages/wish/detail/detail",
+					"query": "id=1006&button=2&sharer=10000000&ticket=100000000000",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/wish/wish",
+					"pathName": "pages/wish/wish",
+					"query": "",
+					"scene": 1044,
+					"shareInfo": {
+						"groupName": "测试模拟群2",
+						"shareName": "YjV-1qwnYIJJj9LlXllQIOe5-CYs7nSXLs7bdb03l5I@cr4dev",
+						"shareKey": "4gctnw6NBWe6EocFbrEVTwTDeoeEHRoEybUJzYApC9Z4Qw9-2NAfKwiDBsJNkOJ2dkmFKUa_6NovgbkbDsp9PA~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/handsel/handsel",
+					"pathName": "pages/handsel/handsel",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/handsel/detail/detail",
+					"pathName": "pages/handsel/detail/detail",
+					"query": "id=1002&handsel_key=hs_10001098_1002",
+					"scene": 1044,
+					"shareInfo": {
+						"groupName": "测试模拟群2",
+						"shareName": "YjV-1qwnYIJJj9LlXllQIOe5-CYs7nSXLs7bdb03l5I@cr4dev",
+						"shareKey": "VGYC7rJb4K0Zi76fuGHF2q3YXbl2baYuVKzKI1XLOEER0MPzec98t48d567J8bVpt9_l6KCJK5WAB-7UPa9DQA~~"
+					}
+				},
+				{
+					"id": 7,
+					"name": "pages/handsel/list",
+					"pathName": "pages/handsel/list",
+					"query": "sharer=10001098&id=92009002&handsel_key=hs_10001098_92009002",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "group",
+					"pathName": "pages/group/group",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "group/detail",
+					"pathName": "pages/group/detail/detail",
+					"query": "id=1001&sharer=10000000",
+					"scene": 1044,
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "YjV-1qwnYIJJj9LlXllQICA_-950DeUWCuozdIfOE60@cr4dev",
+						"shareKey": "6y2X3vfTH1bNZLWx6uZK46svc46MerM40Uz6yWQs8mWrVuIEr-e95fks11DB7MCFHw4tz0n1E9uOmFWuUykcRA~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "limit",
+					"pathName": "pages/limit/limit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "limit/detail",
+					"pathName": "pages/limit/detail/detail",
+					"query": "id=1001&sharer=10000000",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "limit",
+					"pathName": "pages/limit/limit",
+					"query": "id=1001&sharer=10000000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/record/record",
+					"pathName": "pages/user/record/record",
+					"query": "records=record_20_",
+					"scene": null
+				}
+			]
+		}
+	}
+}

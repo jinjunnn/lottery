@@ -1,0 +1,83 @@
+<view class="{{backgroundColor}}" catchtouchmove="true">
+    <view class="commodity_screen" wx:if="{{showreward}}" touchmove="hide_qrcode">
+        <!-- 没有share -->
+        <view class="modal_btn_wrap"  >
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png"
+                mode="widthFix" bindtap="bind_close_reward">
+            </image>
+            <view class="modal_image">
+                <image style="height: 240rpx;width:240rpx; padding-bottom: 20rpx;" src="{{image}}">
+                </image>
+            </view>
+            <view class="heihei"  >
+                <text>
+                    恭喜您成功抽取该奖品!
+                    请联系客服领取！
+                </text>
+            </view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" open-type="share" type="groupName" open-gid="">分享给好友</button>
+            <view style="height:60rpx"></view>
+        </view>
+    </view>
+    <view wx:if="{{showModalStatus||showqrcode||showreward}}" touchmove="hideModal" class="bottom_ad">
+        <ad unit-id="adunit-75e5ba2ac9b07eda"></ad>
+    </view>
+</view>
+
+
+
+<view class="wrap">
+    <view wx:for="{{records}}" wx:key="item" >
+        <view class="item_wrap">
+            <navigator url="./record/detail?key={{item.key}}" open-type="navigate" hover-class="none"
+                wx:if="{{records}}">
+                <view class="texrt_title">
+                    <view>
+                        <image style=" height:20rpx; width:45rpx;" src="/image/新消息.png" wx:if='{{item.open == 0}}'>
+                        </image>
+                        <text>抽奖号码：No.{{item.code}}</text>
+                    </view>
+                    <view>
+                        <view wx:if='{{item.result == 0}}'>未中奖</view>
+                        <view wx:if='{{item.result == -1}}'>未开奖</view>
+                        <view wx:if='{{item.result == 1}}' bindtap='bind_get_award' data-key="{{item.key}}"
+                            data-mcode="{{item.mcode}}" data-gid="{{item.gid}}">点击领奖</view>
+                    </view>
+                </view>
+                <view class="codewrap">
+                    <view class="ticket"  >
+                        <view    >
+                            抽奖类型：<text wx:if="{{item.type==0}}">[天天体彩排列三]</text><text
+                                wx:if="{{item.type==1}}">排列四</text><text wx:if="{{item.type==2}}">[天天体彩排列五]</text>
+                        </view>
+                        <view    >
+
+                            抽奖期次：{{item.period}}
+                        </view>
+                        <view    >
+                            抽奖编号：{{item.gid}}{{item.time_stamp}}
+                        </view>
+                        <view style="color:#b0b0b0;font-size:24rpx" hover-class="none"
+                            hover-stop-propagation="false" wx:if="{{item.result == 0}}">
+                            很遗憾，您未中奖，请再接再厉。{{item.period}}期中奖码： <text
+                                style="color:#d0554b; font-weight: bold;">{{item.mcode}}</text>,期待您下次中奖。
+                        </view>
+                        <view style="color:#b0b0b0;font-size:24rpx" hover-class="none"
+                            hover-stop-propagation="false" wx:if="{{item.result == -1}}">
+                            本平台的抽奖活动中奖数字锚定天天体彩【排列三】【排列五】，每晚21：50-22：00在CCTV-5开奖，请您留意中奖信息。
+                        </view>
+                        <view style="color:#b0b0b0;font-size:24rpx" hover-class="none"
+                            hover-stop-propagation="false" wx:if="{{item.result == 1}}">
+                            恭喜您中奖，请与30天之内与客服取得联系，本平台仅保存30天之内的抽奖数据。
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+
+        <view style="margin:30rpx;"   wx:if="{{item.load_add}}">
+            <ad unit-id="adunit-5cd718e290160efb"></ad>
+        </view>
+    </view>
+</view>

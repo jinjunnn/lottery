@@ -1,0 +1,235 @@
+    
+<view wx:if='{{settings.verify==1}}'>
+    <!-- 这段是topper -->
+    <view class="first">
+        <view class="second_b">
+            <view bindtap="bind_nav" class="items_wrap" data-url="/pages/group/group">
+                <image class="second_image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/f503a1a28dd5a4418419.png/%E9%85%92%E5%BA%97.png" lazy-load="false"></image>
+                <view class="first_text" >
+                    群抽奖
+                </view>
+            </view>
+            <view bindtap="bind_nav" class="items_wrap" data-url="/pages/limit/limit">
+                <image class="second_image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/ad1d121b0076568c532e.png/%E9%97%A8%E7%A5%A8.png" lazy-load="false"></image>
+                <view class="first_text">
+                    限定砍
+                </view>
+            </view>
+            <view bindtap="bind_nav" class="items_wrap" data-url="/pages/handsel/handsel"
+                wx:if="{{settings.verify==1}}">
+                <image class="second_image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/a5491553b5f2d81864a6.png/%E5%91%A8%E8%BE%B9%E6%B8%B8.png" lazy-load="false"></image> 
+                <view class="first_text">
+                    0元砍
+                </view>
+            </view>
+            <view bindtap="bind_nav" class="items_wrap" data-url="/pages/lottery/lottery">
+                <image class="second_image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/8858cf065f464f933a0a.png/%E8%87%AA%E7%94%B1%E8%A1%8C.png" lazy-load="false"></image>
+                <view class="first_text">
+                    0元抽
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 这段是限定砍价 -->
+    <view>
+        <view style="text-align: center;font-size: 30rpx;padding:20rpx;color:#7b7b7b;font-weight: bolder;">限定砍</view>
+        <view class="wrap" bindtap="bind_nav" data-url="/pages/limit/limit">
+            <image src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/1ad130b4bed69635751e/timg%20%282%29.jpeg" class="image"
+                mode='aspectFill'></image>
+            <view class="title">
+                手机充值卡20元 (支持移动、电信、联通)
+            </view>
+            <view class="content_wrap">
+                <view class="left_content">
+                    <view class="text_wrap2"  >
+                        <view class="itemprice">
+                            <text>邀请40人砍价必定获得！
+                                限定抽奖限定次数助力必定获得奖励。
+                            </text>
+                        </view>
+                        <view class="itemprice"></view>
+                    </view>
+                </view>
+                <view class="right_content">
+                    <view class="right_item">去参与</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 0元砍-->
+    <block>
+            <view style="text-align: center;font-size: 30rpx;padding:20rpx;color:#7b7b7b;font-weight: bolder;">零元砍</view>
+            <view class="wraps">
+                <block wx:for="{{list}}" wx:key="item">
+                    <view class="item_wrap"   bindtap="bind_nav"
+                        data-url="/pages/handsel/detail/detail?id={{item.id}}">
+                        <image class="image_handsel" src="{{item.image}}" mode="aspectFill" lazy-load="false"
+                            binderror="" bindload="">
+
+                        </image>
+                        <view class="text"  >
+                            {{item.name}}
+                        </view>
+                        <view class="text">
+                            平均砍价<text style="color:#FB1621">{{item.times}}</text>次砍完
+                        </view>
+                        <view    >
+                            <button
+                                style='color:white;background-color: #FB1621;width:190rpx;font-size:24rpx;margin-bottom:20rpx'>0元砍</button>
+                        </view>
+                    </view>
+                </block>
+                <navigator style="display:inline-block; margin:5rpx 0rpx 0rpx 5rpx;border-radius: 5rpx;"
+                    url="/pages/handsel/handsel" open-type='navigate'>
+                    <view style="width: 235rpx; height: 400rpx; background-color: #ffffff;" mode="aspectFill">
+                        <view class="itemnamemore">+{{item.length}}</view>
+                        <view class="itempricemore"> 查看更多单品</view>
+                    </view>
+
+                </navigator>
+            </view>
+    </block>
+
+    <!-- 这段是群抽奖 -->
+    <view>
+        <view style="text-align: center;font-size: 30rpx;padding:20rpx;color:#7b7b7b;font-weight: bolder;">群抽奖</view>
+        <view class="wrap" bindtap="bind_nav" data-url="/pages/group/group">
+            <image src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/31aac4f2e3d2e0cb778d/timg%20%281%29.jpeg" class="image"
+                mode='aspectFill'></image>
+            <view class="title">
+                20元视屏会员1个月(腾讯、爱奇艺、优酷）
+            </view>
+            <view class="content_wrap">
+                <view class="left_content">
+                    <view class="text_wrap2"  >
+                        <view class="itemprice">
+                            <text>分享到群中，群友累计抽奖60次即可开奖。
+                                分享者可以获得5元现金红包。
+                            </text>
+                            </view>
+                        <view class="itemprice"></view>
+                    </view>
+                </view>
+                <view class="right_content">
+                    <view class="right_item">去参与</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 这部分是增信 -->
+    <view class="zengxin_wraps">
+        <view class="zengxin_title"  >
+            彩票开奖数据作为中奖依据
+        </view>
+        <view class="zengxin_content"  >
+            开奖数据采用当日彩票开奖数据 确保完全公正
+        </view>
+        <view class="zengxin_wrap"  >
+            <view class="zengxin_text"  >
+                <image class="zengxin_image" src="/image/对号.png"></image>第三方开奖数据
+            </view>
+            <view class="zengxin_text"  >
+                <image class="zengxin_image" src="/image/对号.png"></image>100%正品
+            </view>
+            <view class="zengxin_text"  >
+                <image class="zengxin_image" src="/image/对号.png">
+                </image>开奖公正
+            </view>
+        </view>
+        <view class="zengxin_data_title">
+            {{settings.pre_period}}期开奖号码:{{settings.pre_code}}
+        </view>
+        <view class="zengxin_wrap2">
+            <view class="zengxin_text">
+                <view  >
+                    抽奖人次
+                </view>
+                <view  >
+                    {{settings.lottery_times}}
+                </view>
+            </view>
+            <view class="zengxin_text">
+                <view  >
+                    排列三
+                </view>
+                <view  >
+                    {{settings.second_reward}}人中奖
+                </view>
+            </view>
+            <view class="zengxin_text">
+                <view  >
+                    排列五
+                </view>
+                <view  >
+                    {{settings.first_reward}}人中奖
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 这部分是积分抽奖 -->
+    <view style="text-align: center;font-size: 30rpx;padding:20rpx;color:#7b7b7b;font-weight: bolder;">
+        积分抽奖
+    </view>
+    <view class="lottery_wraps"  >
+        <block wx:for="{{lottery_list}}" wx:key="item">
+            <view class="lottery_item_wrap"   bindtap="bind_nav"
+                data-url="/pages/wish/detail/detail?button=2&id={{item.id}}">
+                <image class="lottery_image" src="{{item.image}}" mode="aspectFill" lazy-load="true"
+                    binderror="" bindload="">
+
+                </image>
+                <view class="lottery_text">
+                    {{item.name}}
+                </view>
+                <view class="lottery_text">
+                    ￥{{item.price}}
+                </view>
+                <view class="lottery_text" wx:if="{{item.type==0}}">
+                    排列三  中奖概率:1‰
+                </view>
+                <view class="lottery_text" wx:else>
+                    排列五  中奖概率:0.01‰
+                </view>
+                <view><button style='color:white;background-color: #FB1621;width:330rpx;font-size:26rpx;margin-bottom:20rpx;font-weight: bold;'>{{item.wish_price}}积分</button>
+                </view>
+
+            </view>
+        </block>
+    </view>
+</view>
+<view wx:elif='{{settings.verify==0}}'>
+    <view style="text-align: center;font-size: 30rpx;padding:20rpx;color:#7b7b7b;font-weight: bolder;">
+        积分抽奖
+    </view>
+    <view class="lottery_wraps">
+        <block wx:for="{{lottery_list}}" wx:key="item">
+            <view class="lottery_item_wrap" bindtap="bind_nav"
+                data-url="/pages/lottery/detail/detail?button=2&id={{item.id}}">
+                <image class="lottery_image" src="{{item.image}}" mode="aspectFill" lazy-load="true" binderror=""
+                    bindload="">
+
+                </image>
+                <view class="lottery_text">
+                    {{item.name}}
+                </view>
+                <view class="lottery_text">
+                    ￥{{item.price}}
+                </view>
+                <view class="lottery_text" wx:if="{{item.type==0}}">
+                    中奖概率:1‰
+                </view>
+                <view class="lottery_text" wx:else>
+                    中奖概率:0.01‰
+                </view>
+                <view><button
+                        style='color:white;background-color: #FB1621;width:330rpx;font-size:26rpx;margin-bottom:20rpx;font-weight: bold;'>{{item.wish_price}}积分</button>
+                </view>
+
+            </view>
+        </block>
+    </view>
+</view>

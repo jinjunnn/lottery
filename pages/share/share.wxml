@@ -1,0 +1,213 @@
+<!-- 为好友点赞前 -->
+<view class="share_wrap"   wx:if="{{tap_status==0}}">
+    <view class="share_title"  >
+        请收下好友送您的积分积分
+    </view>
+    <view class="share_subtitle"  >
+        每人每日最多可以获得4000积分
+    </view>
+    <view class="share_button"  >
+        <button bindtap="send_wish"
+            style="background-color: white;height: 240rpx;width:240rpx;border-radius:120rpx;color:#D54547;text-align:center;line-height: 200rpx; margin:40rpx 235rpx 40rpx 235rpx"
+            open-type="">领取积分</button>
+    </view>
+    <view class="share_content"  >
+        积分积分可以免费抽奖获得好礼。
+    </view>
+</view>
+
+<!-- 为好友点赞后 -->
+<view class="share_wrap"   wx:if="{{tap_status==1}}">
+    <view class="share_title"  >
+        恭喜您领取了{{reward}}积分
+    </view>
+    <view class="share_subtitle"  >
+        每人每日最多可以获得4000积分
+    </view>
+    <view class="share_button"  >
+        <button style="color:#D54547" open-type="share">分享获得更多积分</button>
+    </view>
+    <view class="share_content"  >
+        每个好友领取积分后，您会获得同样多的积分。
+    </view>
+</view>
+
+<!-- 这部分是增信 -->
+<view class="zengxin_wraps" >
+    <view class="zengxin_title" >
+        彩票开奖数据作为中奖依据
+    </view>
+    <view class="zengxin_wrap" >
+            <view class="zengxin_text" >
+                <image class="zengxin_image" src="/image/对号.png"></image>第三方开奖数据
+            </view>
+            <view class="zengxin_text" >
+                <image class="zengxin_image" src="/image/对号.png"></image>100%正品
+            </view>
+            <view class="zengxin_text" >
+                <image class="zengxin_image" src="/image/对号.png">
+                </image>开奖公正
+            </view>
+    </view>
+    
+    <view class="zengxin_data_title" >
+        {{settings.pre_period}}期开奖号码:{{settings.pre_code}}
+    </view>
+    <view class="zengxin_wrap2" >
+        <view class="zengxin_text" >
+            <view  >
+                抽奖人次
+            </view>
+            <view  >
+                {{settings.lottery_times}}
+            </view>
+        </view>
+        <view class="zengxin_text">
+            <view  >
+                排列三
+            </view>
+            <view  >
+                {{settings.second_reward}}人中奖
+            </view>
+        </view>
+        <view class="zengxin_text" >
+            <view  >
+                排列五
+            </view>
+            <view  >
+                {{settings.first_reward}}人中奖
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 这段是积分兑换和积分获得 -->
+<view class="wish_wrap" >
+    <view class="wish_image_wrap">
+        <image class="wish_image" src="/image/积分.png"></image>
+    </view>
+    <view class="wish_content_wrap">
+        <view class="wish_content_title">观看视频随机领取10-50积分</view>
+        <view class="wish_content_content">视频播放完成，才可以获得积分哦</view>
+    </view>
+    <view  >
+        <button style="width: 150rpx;font-size: 24rpx;background-color: #D54547;color:white;margin-top: 30rpx;"
+            open-type="" bindtap="bind_chick">领取</button>
+    </view>
+</view>
+
+<view class="wish_wrap"  >
+    <view class="wish_image_wrap">
+        <image class="wish_image" src="/image/彩票.png"></image>
+    </view>
+    <view class="wish_content_wrap">
+        <view class="wish_content_title">200积分兑换一张彩票</view>
+        <view class="wish_content_content">可以选择双色球或超级大乐透</view>
+    </view>
+    <view  >
+        <button style="width: 150rpx;font-size: 24rpx;background-color: #D54547;color:white;margin-top: 30rpx;"
+            open-type="" bindtap="bind_exchange">兑换</button>
+    </view>
+</view>
+
+<!-- 积分抽奖抽奖 -->
+<view class="title_wrap"   bindtap="bind_switch_tab"
+    data-url="/pages/wish/wish">
+    <view>
+        <view>积分抽奖</view>
+    </view>
+    <view class="title_more"  >
+        <view    >
+            更多
+        </view>
+        <view class="title_more_image"  >
+            <image style="width:20rpx;height:20rpx;" src="/image/箭头.png" mode="widthFix"></image>
+        </view>
+    </view>
+</view>
+
+<!-- <view wx:for="{{wish_lottery_list}}" wx:key="item" wx:if="{{wish_lottery_list}}">
+    <view class="wrap" wx:for-item="goods" bindtap="bind_nav" data-url="/pages/wish/detail/detail?button=2&id={{item.id}}">
+        <image src="{{item.image}}" class="image" mode='aspectFill'></image>
+        <view class="content_wrap">
+            <view class="left_content">
+                <view class="title">
+                    {{item.name}}
+                </view>
+                <view class="text_wrap2"  >
+                    <view class="itemsubname">{{goods.name}}</view>
+                    <view class="itemprice" wx:if="{{goods.type==0}}">中奖锚定天天体彩排列三 | 每日21:50开奖</view>
+                    <view class="itemprice" wx:else="{{goods.type==2}}">中奖锚定天天体彩排列五 | 每日21:50开奖</view>
+                    <view class="itemnamemore">
+                        {{goods.wish_price}}积分抽奖 | 产品已验真
+                    </view>
+                </view>
+                <view class="right_content">
+                    <view class="right_item">{{goods.wish_price}}积分抽奖</view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view> -->
+
+<view wx:for="{{wish_lottery_list}}" wx:for-item="item" bindtap="bind_nav"
+    data-url="/pages/wish/detail/detail?button=2&id={{item.id}}">
+
+    <view class="wish_wrap"  >
+        <view class="wish_image_wrap">
+            <image class="wish_image2" src="{{item.image}}"></image>
+        </view>
+        <view class="wish_content_wrap">
+            <view class="wish_content_title">{{item.name}}</view>
+            <view class="itemprice">{{item.wish_price}}积分积分 | 价值{{item.price}}元</view>
+            <view class="item_text" wx:if="{{item.type==0}}">排列三 | 每日21:50开奖</view>
+            <view class="item_text" wx:else="{{item.type==2}}">排列五 | 每日21:50开奖</view>
+        </view>
+        <view  >
+            <button style="width: 150rpx;font-size: 24rpx;background-color: #D54547;color:white;margin-top: 30rpx;"
+                open-type="">抽奖</button>
+        </view>
+    </view>
+</view>
+
+<!-- 广告 -->
+<view style="margin:10rpx;"  >
+    <ad unit-id="adunit-0d02bbf9cc6dd2f7"></ad>
+</view>
+
+<!-- 免费抽奖 -->
+<view class="title_wrap"   bindtap="bind_switch_tab"
+    data-url="/pages/lottery/lottery">
+    <view>
+        <view>视频抽奖</view>
+    </view>
+    <view class="title_more"  >
+        <view    >
+            更多
+        </view>
+        <view class="title_more_image"  >
+            <image style="width:20rpx;height:20rpx;" src="/image/箭头.png" mode="widthFix"></image>
+        </view>
+    </view>
+</view>
+
+<view wx:for="{{free_lottery_list}}" wx:for-item="item" bindtap="bind_nav"
+    data-url="/pages/lottery/detail/detail?id={{item.id}}">
+
+    <view class="wish_wrap"  >
+        <view class="wish_image_wrap">
+            <image class="wish_image2" src="{{item.image}}"></image>
+        </view>
+        <view class="wish_content_wrap">
+            <view class="wish_content_title">{{item.name}}</view>
+            <view class="itemprice">免费抽奖 | 价值{{item.price}}元</view>
+            <view class="item_text" wx:if="{{item.type==0}}">排列三 | 每日21:50开奖</view>
+            <view class="item_text" wx:else="{{item.type==2}}">排列五 | 每日21:50开奖</view>
+        </view>
+        <view  >
+            <button style="width: 150rpx;font-size: 24rpx;background-color: #D54547;color:white;margin-top: 30rpx;"
+                open-type="">抽奖</button>
+        </view>
+    </view>
+</view>

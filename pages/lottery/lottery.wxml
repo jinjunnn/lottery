@@ -1,0 +1,142 @@
+
+    <!-- 这个是banner -->
+    <view wx:if="{{settings.banner01}}"><image class="first_banner" src="{{settings.banner01}}" lazy-load="false" binderror="" bindload="" mode="widthFix"></image></view>
+    <view class="first"  >
+        <!-- 这部分是增信 -->
+        <!-- <view class="zengxin_wraps"  >
+            <view class="zengxin_title"  >
+                彩票开奖数据作为中奖依据
+            </view>
+            <view class="zengxin_content"  >
+                开奖数据采用当日彩票开奖数据 确保完全公正
+            </view>
+            <view class="zengxin_wrap"  >
+                <view class="zengxin_text"  >
+                    <image class="zengxin_image" src="/image/对号.png"></image>第三方开奖数据
+                </view>
+                <view class="zengxin_text"  >
+                    <image class="zengxin_image" src="/image/对号.png"></image>100%正品
+                </view>
+                <view class="zengxin_text"  >
+                    <image class="zengxin_image" src="/image/对号.png">
+                    </image>开奖公正
+                </view>
+            </view>
+            <view class="zengxin_data_title">
+                {{settings.pre_period}}期开奖号码:{{settings.pre_code}}
+            </view>
+            <view class="zengxin_wrap2">
+                <view class="zengxin_text">
+                    <view  >
+                        抽奖人次
+                    </view>
+                    <view  >
+                        {{settings.lottery_times}}
+                    </view>
+                </view>
+                <view class="zengxin_text">
+                    <view  >
+                        排列三
+                    </view>
+                    <view  >
+                        {{settings.second_reward}}人中奖
+                    </view>
+                </view>
+                <view class="zengxin_text">
+                    <view  >
+                        排列五
+                    </view>
+                    <view  >
+                        {{settings.first_reward}}人中奖
+                    </view>
+                </view>
+            </view>
+        </view> -->
+        
+        <!-- 这段是自己的广告位 -->
+        <view class="self_wrap" wx:if="{{settings.shop_image&&settings.wish_image}}">
+            <view class="self_ad_image_wrap" wx:if="{{settings.shop_image}}">
+                <image class="self_ad_image" src="{{settings.shop_image}}" mode="" bindtap="bind_nav_mini_program"
+                    data-appid="{{settings.shop_appid}}" data-path="/pages/landing/landing">
+                    
+                </image>
+            </view>
+            <view class="self_ad_image_wrap" wx:if="{{settings.wish_image}}">
+                <image class="self_ad_image" src="{{settings.wish_image}}" mode="" bindtap="bind_switch_tab"
+                    data-url="/pages/wish/wish">
+
+                </image>
+            </view>
+        </view>
+    </view>
+    <!-- 这段是首推的代码 -->
+    <view wx:for="{{sell_list}}" wx:key="item" wx:if="{{sell_list}}">
+        <view class="wrap" wx:for-item="goods" bindtap="bind_nav" data-url="./detail/detail?id={{item.id}}">
+            <image src="{{item.image}}" class="image" mode='aspectFill'></image>
+            <view class="title">
+                {{item.name}}
+            </view>
+            <view class="content_wrap">
+                <view class="left_content">
+
+                    <view class="text_wrap2"  >
+                        <view class="itemsubname">{{goods.name}}</view>
+                        <view class="itemprice" wx:if="{{goods.type==0}}">开奖数据采用体育彩票-排列三</view>
+                        <view class="itemprice" wx:else="{{goods.type==2}}">开奖数据采用体育彩票-排列五</view>
+                        <view class="itemprice" wx:if="{{goods.type==0}}">每日21:50开奖 | 产品已验真 | 第三方开奖 | 公正</view>
+                        <view class="itemprice" wx:else="{{goods.type==2}}">每日21:50开奖 | 产品已验真 | 第三方开奖 | 公正</view>
+                    </view>
+                </view>
+                <view class="right_content">
+                    <view class="right_item">立即参与</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 这段是列表的代码 -->
+    <view wx:for="{{list}}" wx:key="item">
+        <navigator url="./list/list?list_id={{item.listing.list_id}}&shop_name={{item.listing.shop_name}}">
+            <view>
+                <view class="title_wrap"  >
+                    <view>
+                        <view>{{item.listing.shop_name}}</view> 
+                    </view>
+                    <view class="title_more"  >
+                        <view    >
+                            更多
+                        </view>
+                        <view class="title_more_image"  >
+                            <image style="width:20rpx;height:20rpx;" src="/image/箭头.png" mode="widthFix"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+        <view>
+            <view  wx:for="{{item.goods}}" wx:for-item="goods" bindtap="bind_nav"
+                data-url="./detail/detail?id={{goods.id}}"
+                style="display:inline-block; margin:0rpx 0rpx 0rpx 10rpx"
+                url="./list/detail/detail?key={{goods.key}}">
+                <view class="itemwrap"  >
+                    <view style="width: 200rpx; height: 200rpx; background-color: #eeeeee;">
+                        <image style="width: 200rpx; height: 200rpx; background-color: #eeeeee;"
+                            mode="aspectFill" src="{{goods.images[0]}}"></image>
+                    </view>
+                    <view class="text_wrap"  >
+                        <view class="itemsubname">{{goods.name}}</view>
+                        <view class="itemprice" wx:if="{{goods.type==0}}">开奖数据采用体育彩票-排列三</view>
+                        <view class="itemprice" wx:else="{{goods.type==2}}">开奖数据采用体育彩票-排列五</view>
+                        <view class="itemprice" wx:if="{{goods.type==0}}">每日21:50开奖 | 产品已验真 | 第三方开奖 | 公正</view>
+                        <view class="itemprice" wx:else="{{goods.type==2}}">每日21:50开奖 | 产品已验真 | 第三方开奖 | 公正</view>
+                        <view class="itemname_button">
+                            <view>视频抽奖</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view style="margin:10rpx;"  >
+            <ad unit-id="adunit-c45c7a9e4bbb0ed5"></ad>
+        </view>
+    </view>

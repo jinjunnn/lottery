@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "点赞获积分啦", 
+  "navigationBarBackgroundColor": "#D54547",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false
+}

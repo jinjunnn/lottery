@@ -1,0 +1,45 @@
+<view wx:for="{{list}}" wx:key="item">
+    <view class="handsel_wrap" bindtap="bind_nav" data-url="/pages/handsel/detail/detail?id={{item.goods_info.id}}">
+        <view wx:if='{{item.my_handsel.paid - item.my_handsel.total >=0}}'
+            style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621"
+             >
+            已完成砍价 联系客服领取奖励
+        </view>
+        <view wx:elif='{{!item.expired}}' style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621"
+            hover-class="none"
+            hover-stop-propagation="false">
+            正在进行中
+        </view>
+        <view wx:else  style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621" hover-class="none"
+            hover-stop-propagation="false">
+            已超时
+        </view>
+        <view class="title"  >
+            <view class="title_image_wrap">
+                <image src="{{item.goods_info.image}}" class="banner_image"></image>
+            </view>
+            <view class="title_content_wrap">
+                <view class='text_name'>{{item.goods_info.name}}</view>
+                <view class="text_detail"  >
+                    {{item.goods_info.price}}元
+                </view>
+                <!-- 已经完成砍价 -->
+                <block wx:if="{{item.my_handsel.paid - item.my_handsel.total>=0}}">
+                    <view class="button_text">
+                        完成砍价，快去联系客服领取奖品吧
+                    </view>
+                </block>
+                <block wx:elif='{{!item.expired}}'>
+                    <view class="button_text">
+                        已砍{{item.my_handsel.paid/100}}元，预计{{item.my_handsel.left_times}}个新用户砍价即可完成.
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="button_text">
+                        砍价已过期，已砍{{item.my_handsel.paid/100}}元，请重新开始砍价。
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

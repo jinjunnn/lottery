@@ -1,0 +1,39 @@
+<view wx:for="{{data}}" wx:key="item">
+    <view class="handsel_wrap">
+        <view class="title"  >
+            <view class="title_image_wrap">
+                <image src="{{item.goods_info.image}}" class="banner_image"></image>
+            </view>
+            <view class="title_content_wrap">
+                <view class='text_name'>{{item.goods_info.name}}</view>
+                <view class="text_detail"  >
+                    {{item.goods_info.price}}元
+                </view>
+                <block wx:if="{{item.lottery_times - item.goods_info.ll_times >=0}}">
+                    <view class="button_text">
+                        恭喜您完成助力活动！
+                    </view>
+                </block>
+                <block wx:elif='{{today !=item.code}}'>
+                    <view class="button_text">
+                        助力活动已过期。限定助力活动助力次数仅限当日有效。{{item.code}}日助力{{item.lottery_times}}次。
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="button_text">
+                        已经进行{{item.lottery_times}}次助力，还差{{item.goods_info.ll_times - item.lottery_times}}次助力即可领奖。
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view style='text-align: right;'>
+            <button class='button' size="mini" wx:if='{{item.lottery_times - item.goods_info.ll_times >=0}}' bindtap='bind_click' data-msg='{{item}}'>领取奖励</button>
+            <button class='button' size="mini" wx:elif='{{today ==item.code}}' open-type="share">分享</button>
+        </view>
+    </view>
+</view>
+<view style='font-size: 22rpx;text-align:center;color:white;margin:20rpx;'>
+    <text name="" id="" cols="30" rows="10"></text>
+    用户发起助力活动当日，助力次数达到要求，用户即可获得奖励。100%领取。
+</view>
+<view style='height:100rpx'></view>

@@ -1,0 +1,87 @@
+page {
+    background-color: #f2f2f2;
+}
+
+
+.item_wrap {
+    background-color: #fff;
+    padding: 30rpx;
+    margin: 30rpx 30rpx 0rpx 30rpx;
+    border-radius: 20rpx;
+
+
+}
+
+.texrt_title {
+    font-size: 26rpx;
+    padding-bottom: 20rpx;
+    display: -webkit-flex;
+    justify-content: space-between;
+    border-bottom: 1rpx dashed #b0b0b0;
+}
+
+.text_content {
+    padding-top: 20rpx;
+    font-size: 26rpx;
+    color: #b0b0b0;
+}
+
+.codewrap {
+    padding-top: 20rpx;
+    display: -webkit-flex;
+    justify-content: space-between;
+
+}
+
+.codesubwrap {
+    height: 200rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 5rpx;
+    width: 140rpx;
+    margin: 10rpx;
+}
+
+.puke_icon {
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 5rpx;
+}
+
+.puke_icon_right {
+    height: 30rpx;
+    width: 30rpx;
+    text-align: right;
+    transform: rotate(180deg);
+    margin-left: 105rpx;
+}
+
+.box_image {
+    height: 45rpx;
+    width: 45rpx;
+    margin: 30rpx;
+}
+
+.box_title {
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    font-size: 26rpx;
+    color: #b0b0b0;
+}
+
+.box_content {
+    font-size: 26rpx;
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    height: 110rpx;
+}
+
+.box_button {
+    text-align: center;
+    width: 270rpx;
+    height: 60rpx;
+    font-size: 26rpx;
+    background-color: #d0554b;
+    color: white;
+}
+
+.ticket {
+    font-size: 26rpx;
+}

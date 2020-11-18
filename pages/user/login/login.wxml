@@ -1,0 +1,14 @@
+
+
+<view class="container">
+
+  <view class="page-body">
+    <view class="page-section">
+      <block>
+        <text class="page-body-text">每个微信号中仅需登录一次</text>
+        <button class="page-body-button" type="primary" open-type="getUserInfo"
+          bindgetuserinfo="onGotUserInfo">微信登录</button>
+      </block>
+    </view>
+  </view>
+</view>

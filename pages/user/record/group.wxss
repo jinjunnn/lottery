@@ -1,0 +1,70 @@
+page {
+    background-color: #FA3848;
+}
+
+.handsel_wrap {
+    background-color: #f6f6f6;
+    margin: 20rpx;
+    border-radius: 10rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.title {
+    display: -webkit-flex;
+    padding: 0rpx 20rpx 20rpx 20rpx;
+
+}
+
+.title_image_wrap {
+    width: 240rpx;
+    height: 240rpx;
+    background-color: #ffffff;
+}
+
+.title_content_wrap {
+    font-size: 28rpx;
+    height: 210rpx;
+    width: 440rpx;
+    background-color: #ffffff;
+    padding: 15rpx;
+}
+
+.banner_image {
+    width: 240rpx;
+    height: 240rpx;
+
+    /* padding:10rpx 150rpx 10rpx 195rpx;
+    border-radius: 20rpx 20rpx 0rpx 0rpx; */
+}
+
+.text_name {
+    font-size: 26rpx;
+    /* 多行文字溢出 */
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.text_detail {
+    color: #D54547;
+    font-size: 22rpx;
+    font-weight: bold;
+}
+
+.button_text {
+    font-size: 22rpx;
+    height: 110rpx;
+    display: table-cell;
+    /*按照单元格的样bai式显示元素*/
+    vertical-align: bottom;
+    /*底对齐du*/
+}
+
+.button {
+    background-color: #FA3848;
+    color: white;
+    margin-right: 20rpx;
+}

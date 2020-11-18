@@ -1,0 +1,42 @@
+<view wx:for="{{data}}" wx:key="item">
+    <view class="handsel_wrap">
+        <view class="title" bindtap="bind_click" data-url="/pages/handsel/detail/detail?id={{item.goods_info.id}}">
+            <view class="title_image_wrap">
+                <image src="{{item.goods_info.image}}" class="banner_image"></image>
+            </view>
+            <view class="title_content_wrap">
+                <view class='text_name'>{{item.goods_info.name}}</view>
+                <view class="text_detail"  >
+                    {{item.goods_info.price}}元
+                </view>
+                <!-- 已经完成砍价 -->
+                <block wx:if="{{item.lottery_times - item.goods_info.gl_times >=0}}">
+                    <view class="button_text">
+                        群抽奖已经完成。中奖用户{{item.winner.name}}。
+                    </view>
+                </block>
+                <block wx:elif='{{today !=item.code}}'>
+                    <view class="button_text">
+                        已过期。群抽奖次数仅限当日有效。{{item.code}}日抽奖{{item.lottery_times}}次。
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="button_text">
+                        已经进行{{item.lottery_times}}次群抽奖，还差{{item.goods_info.gl_times - item.lottery_times}}次群抽奖即可开奖。
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view style='text-align: right;' wx:if='{{item.winner.uid == uid}}'>
+            <button class='button' size="mini" wx:if="{{item.lottery_times - item.goods_info.gl_times >=0}}"
+                bindtap='bind_get_award' data-msg='{{item}}'>领取奖励</button>
+        </view>
+    </view>
+
+</view>
+
+<view style='font-size: 22rpx;text-align:center;color:white;margin:20rpx;'>
+    <text name="" id="" cols="30" rows="10"></text>
+    群抽奖时限仅限抽奖当日，抽奖次数达到开奖条件，即可开奖。开奖随机选取一名群成员作为中奖用户。
+</view>
+<view style='height:100rpx'></view>

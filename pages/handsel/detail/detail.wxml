@@ -1,0 +1,467 @@
+<!-- 这里是微信底部弹出框的代码 
+这部分代码一定要放在最上面
+
+-->
+<view class="{{backgroundColor}}" catchtouchmove="true">
+    <view class="commodity_screen" wx:if="{{showModalStatus}}" touchmove="hideModal">
+        <!-- 没有share -->
+        <view class="modal_btn_wrap"   wx:if="{{!sharer}}">
+                <image class="imagesss"
+                    src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png"
+                    mode="widthFix" bindtap="bind_close">
+                </image>
+                <view class="modal_image1">
+                    <icon class="icon-box-img" type="success" size="93"></icon>
+                </view>
+                <view class="heihei"  >
+                    <text>
+                        哇，恭喜您成功砍了{{handsel.paid/100}}元!
+                        预计再邀请{{times}}个新好友即可完成！
+                    </text>
+                </view>
+                <button style="width:450rpx; color:#fff;background-color: #D54547;" open-type="share">邀请好友助力</button>
+                <view style="height:60rpx"></view>   
+        </view>
+        <!-- 分享者就是 用户自己 -->
+        <view class="modal_btn_wrap"   wx:elif="{{sharer==uid}}">
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png" mode="widthFix"
+                bindtap="bind_close">
+            </image>
+            <view class="modal_image1">
+                <icon class="icon-box-img" type="success" size="93"></icon>
+            </view>
+            <view class="heihei"  >
+                已砍掉{{handsel.paid/100}}元，预计还要{{times}}个用户即可砍到0元。
+            </view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" open-type="share">邀请好友助力</button>
+            <view style="height:60rpx"></view>
+        </view>
+        <!-- 分享者 和点击进入者不是同一个人 -->
+        <view class="modal_btn_wrap"   wx:elif="{{sharer!=uid}}">
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png" mode="widthFix"
+                bindtap="bind_close">
+            </image>
+            <view class="heihei"  >
+                谢谢您帮我砍价{{handsel.pay/100}}元
+                <text style="font-size: 24rpx;" selectable="false" space="false" decode="false">
+                    送您一件商品，赶快去砍价吧！</text>
+            </view>
+            <view class="modal_image">
+                <image style="height: 240rpx;width:240rpx; padding-bottom:20rpx;margin-bottom:40rpx;"
+                    src="{{list[0].image}}">
+                </image>
+            </view>
+            <view style="height:40rpx"></view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" bindtap="bind_nav_new_item">立即领取</button>
+            <view style="height:60rpx"></view>
+        </view>
+    </view>
+    <view class="commodity_screen" wx:elif="{{showqrcode}}" touchmove="hide_qrcode">
+        <!-- 没有share -->
+        <view class="modal_btn_wrap"  >
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png" mode="widthFix"
+                bindtap="bind_close_qrcode">
+            </image>
+            <view class="modal_image">
+                <image style="height: 240rpx;width:240rpx; padding-bottom: 20rpx;" src="{{good.seller.image}}">
+                </image>
+            </view>
+            <view class="heihei"  >
+                <text>
+                    截屏加店主微信有好礼相赠
+                    {{good.seller.appid}}
+                </text>
+            </view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" bindtap="copy_wechatid">复制店主微信号</button>
+            <view style="height:60rpx"></view>
+        </view>
+    </view>
+
+    <view class="commodity_screen" wx:elif="{{showreward}}" touchmove="hide_qrcode">
+        <!-- 没有share -->
+        <view class="modal_btn_wrap"  >
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png"
+                mode="widthFix" bindtap="bind_close_reward">
+            </image>
+            <view class="modal_image">
+                <image style="height: 240rpx;width:240rpx; padding-bottom: 20rpx;" src="{{good.image}}">
+                </image>
+            </view>
+            <view class="heihei"  >
+                <text>
+                    恭喜您砍价成功并获得奖品!
+                    请联系客服领取！
+                </text>
+            </view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" bindtap="bind_close_reward">确定</button>
+            <view style="height:60rpx"></view>
+        </view>
+    </view>
+    <view wx:if="{{showModalStatus||showqrcode||showreward}}" touchmove="hideModal" class="bottom_ad">
+        <ad unit-id="adunit-75e5ba2ac9b07eda"></ad>
+    </view>
+</view>
+
+<!-- 主体内容 -->
+<view>
+    <!-- 头部 -->
+    <view class="title"  >
+        <view class="title_image_wrap">
+            <image src="{{good.image}}" class="banner_image"></image>
+        </view>
+        <view class="title_content_wrap">
+            <view class='text_name'>{{good.name}}</view>
+            <view class="text_detail"  >
+                价格：{{good.price}}元
+            </view>
+            <!-- 已经完成砍价 -->
+            <block wx:if="{{handsel.paid-handsel.total>=0}}">
+                <view class="button_text">
+                    完成砍价，快去联系客服领取奖品吧
+                </view>
+            </block>
+            <!-- 未完成砍价 -->
+            <!-- 自己打开-->
+            <block wx:elif="{{!sharer}}">
+                <block wx:if="{{exist_handsel==0}}">
+                    <view class="button_text">
+                        预计{{good.times}}次助力可免费拿！
+                    </view>
+                </block>
+                <block wx:elif="{{exist_handsel==1}}">
+                    <view class="button_text" wx:if="{{handsel.paid}}">
+                        已砍掉{{handsel.paid/100}}元，预计{{times}}个新用户即可完成，新用户的砍价数值是普通用户5倍。
+                    </view>
+                    <view class="button_text" wx:else>
+                        预计邀请{{good.price*2}}新用户即可获得奖品。
+                    </view>
+                </block>
+            </block>
+            <!-- 被分享者打开 -->
+            <block wx:else>
+                <block wx:if="{{sharer!=uid}}">
+                    <view class="button_text">
+                        已砍掉{{handsel.paid/100}}元，预计{{times}}次即可砍到0元。
+                    </view>
+                </block>
+                <!-- 自己打开  已砍过价 -->
+                <block wx:elif="{{sharer==uid}}">
+                    <view class="button_text">
+                        已砍掉{{handsel.paid/100}}元，预计{{times}}次即可砍到0元。
+                    </view>
+                </block>
+            </block>
+        </view>
+    </view>
+    <!-- 砍价按钮 -->
+    <view class="handsel_button_wrap"  >
+        <block wx:if="{{!uid}}">
+            <!-- 未获取user信息之前，不显示任何信息 -->
+        </block>
+        <block wx:elif="{{sharer&&sharer!=uid}}">
+            <!-- 没有handsel -->
+            <view wx:if="{{!handsel}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <!-- 没有handsel -->
+                <view style="padding:30rpx 0rpx 30rpx 0rpx;">
+                    <button bindtap="bind_create_handsel"
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding: 20rpx ">
+                        我要免费拿</button>
+                </view>
+            </view>
+            <!-- sharer的砍价已成功 -->
+            <view wx:elif="{{handsel.paid-handsel.total>=0}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <view class="daojishi">您的好友完成砍价，请通知TA联系客服领取奖励！</view>
+                <button bindtap="bind_create_handsel" style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding:20rpx">
+                    我要发起砍价
+                </button>
+            </view>
+            <!-- sharer砍价已经过期 -->
+            <view wx:elif="{{expired==true}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <!-- 抽奖已过期 -->
+                <view class="daojishi"  >您好友的砍价已经过期</view>
+                <button style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding:20rpx"
+                        bindtap="bind_create_handsel">
+                    我要发起砍价</button>
+                <view style="height: 20rpx;"  ></view>
+            </view>
+            <!-- 可以砍价 -->
+            <view wx:else style="padding:20rpx 0rpx 15rpx 0rpx">
+                <view class="daojishi"   wx:if="{{!tapped||!handsel.pay}}">
+                    剩余时间：{{countDownHour}}时:{{countDownMinute}}分:{{countDownSecond}}秒</view>
+                <view class="daojishi"   wx:else>
+                    您已经帮用户砍掉{{handsel.pay/100}}元</view>
+                <view style="padding-top:0rpx;padding-bottom:30rpx;">
+                    <button bindtap="bind_chick" wx:if="{{!tapped}}"
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding: 20rpx">
+                        砍一刀(观看视频)</button>
+                    <button bindtap="bind_create_handsel" wx:else
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding: 20rpx">
+                        我也要参加</button>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <!-- 没有handsel数据 -->
+            <view wx:if="{{exist_handsel==0||!handsel}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <view style="padding:30rpx 0rpx 30rpx 0rpx;">
+                    <button bindtap="bind_create_handsel"
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding: 20rpx ">
+                        我要免费拿</button>
+                </view>
+            </view>
+            <!-- sharer的砍价已成功 -->
+            <view wx:elif="{{handsel.paid-handsel.total>=0}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <view class="daojishi">恭喜您完成砍价，赶紧联系客服领取奖励！</view>
+                <button bindtap="bind_get_award"
+                    style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding:20rpx">
+                    领取奖励
+                </button>
+            </view>
+            <!-- sharer砍价已经过期 -->
+            <view wx:elif="{{expired==true}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <!-- 抽奖已过期 -->
+                <view class="daojishi"  >活动已过期</view>
+                <button
+                    style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding:20rpx"
+                    bindtap="bind_create_handsel">
+                    重新发起砍价</button>
+                <view style="height: 20rpx;"  ></view>
+            </view>
+            <!-- sharer砍价已经过期 -->
+            <view wx:elif="{{expired==true}}" style="padding:20rpx 0rpx 15rpx 0rpx">
+                <!-- 抽奖已过期 -->
+                <view class="daojishi"  >活动已过期</view>
+                <view style="padding-top:0rpx;padding-bottom:30rpx;border-bottom: 1rpx solid #FB1621;">
+                    <button
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center; padding:20rpx"
+                        bindtap="bind_create_handsel">
+                        重新发起砍价</button>
+                </view>
+                <view style="height: 20rpx;"  ></view>
+            </view>
+            <view wx:else style="padding:20rpx 0rpx 30rpx 0rpx">
+                <view class="daojishi"  >
+                    剩余时间：{{countDownHour}}时:{{countDownMinute}}分:{{countDownSecond}}秒
+                </view>
+                <view style="padding-top:0rpx;padding-bottom:30rpx;border-bottom: 1rpx solid #FB1621;">
+                    <button open-type="share"
+                        style="background-color: #FB1621;width:590rpx;border-radius: 50rpx;color:#fff;text-align:center;padding: 20rpx ">
+                        喊好友去砍价</button>
+                </view>
+                <view class="wish_wraps"  >
+                    <view class="wish_wrap" style="background-color: #F2FEFF;">
+                        <view class="wish_image_wrap">
+                            <image class="wish_image" src="/image/icon05.png"></image>
+                        </view>
+                        <view class="wish_content_wrap">
+                            <view class="wish_content_title">积分加速特权</view>
+                            <view class="wish_content_content">200积分加速2元</view>
+                        </view>
+                        <view>
+                            <button
+                                style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top:30rpx;opacity: 0.7;;"
+                                open-type="" wx:if="{{handsel.quicken}}">完成</button>
+                            <button
+                                style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top:30rpx;"
+                                open-type="" bindtap="bind_quicken" wx:else>加速</button>
+                        </view>
+                    </view>
+                    <view class="wish_wrap" style="background-color: #FFF9FF;">
+                        <view class="wish_image_wrap">
+                            <image class="wish_image" src="/image/icon07.png"></image>
+                        </view>
+                        <view class="wish_content_wrap">
+                            <view class="wish_content_title">邀请新用户一起砍</view>
+                            <view class="wish_content_content">新用户砍价金额最高5倍</view>
+                        </view>
+                        <view>
+                            <button
+                                style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top: 30rpx;"
+                                open-type="share">分享</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+
+    <!-- 赞助商的信息 -->
+    <!-- <view style="margin:20rpx;font-size:28rpx; display:-webkit-flex; justify-content:space-around">
+        <view style="flex:3.7; margin:23.5rpx">赞助商：</view>
+        <view style="flex:0.5; ">
+            <image src="{{supplier.image}}" style="width:75rpx; height:75rpx;  border-radius:37.5rpx;"></image>
+        </view>
+        <view style="flex:1; margin:23.5rpx">{{supplier.name}}</view>
+    </view> -->
+    <!-- 赞助商信息 -->
+    <view class='seller_wrap'>
+        <view class="seller" wx:if="{{good.seller.type==1}}" bindtap="bind_display_qrcode"
+            data-appid="{{good.seller.appid}}">
+            <view class="seller_item">
+                <image style="width:40rpx;height:40rpx;margin:5rpx 5rpx 0rpx 0rpx" src="{{icon_wechat}}"
+                    mode="aspectFit"></image>
+                <text style="color:#20BF64; font-weight: bold;">{{good.seller.name}}</text>
+            </view>
+            <view class="seller_item">
+                <image style="width:40rpx;height:40rpx;margin:5rpx 15rpx 0rpx 10rpx" src="{{icon_wechat_add}}"
+                    mode="aspectFit">
+                </image>
+                <text style="color:#20BF64">加好友</text>
+            </view>
+        </view>
+        <view class="seller" wx:elif="{{good.seller.type==0}}" bindtap="bind_display_qrcode"
+            data-appid="{{good.seller.appid}}">
+        </view>
+        <view class="seller" wx:else bindtap="bind_nav_mini_program" data-appid="wx8fc9502b8f83f501"
+            data-path="{{good.seller.path}}" data-data="{{good.seller.data}}">
+            <view class="seller_item">
+                <image style="width:40rpx;height:40rpx;margin:0rpx 15rpx 0rpx 10rpx" src="{{icon_xiaochengxu01}}"
+                    mode="aspectFit"></image>
+                <text style="color:#20BF64; font-weight: bold;">SUGAR全球快闪店赞助</text>
+            </view>
+            <view class="seller_item">
+                <image style="width:25rpx;height:25rpx;margin:10rpx 5rpx 0rpx 10rpx" src="{{icon_xiaochengxu02}}"
+                    mode="aspectFit">
+                </image>
+                <text style="color:#20BF64 ;font-weight: bold;">去逛逛</text>
+            </view>
+        </view>
+        <view class="seller_content" wx:if="{{good.seller.type==1||good.seller.type==0}}" hover-class="none"
+            hover-stop-propagation="false">
+            {{good.seller.content}}
+        </view>
+        <view class="seller_content" wx:else  >
+
+            <view wx:if="{{good.content}}">
+                <text> 产品详情:{{good.content}}
+                </text>
+            </view>
+            <view wx:if="{{good.content}}">
+                <text   selectable="false" space="false" decode="false">
+                    赞助商留言
+                    SUGAR全球快闪店是一家主营日货、美货的直营社交电商。。。
+                    每一件商品均专业采购亲自采购。。。
+                    如没有特殊说明商品均非免税版。。。
+                    社交直营 口碑传播 
+                    不议价 部分商品送小样 分享好友有红包
+                    我们的导购均来自丝芙兰 非常熟悉商品  
+                    小姐姐在彩妆护肤有问题可以随时问我们哦
+                </text>
+            </view>
+        </view>
+        <view style="margin:0rpx;padding:0rpx; background-color: #ffffff; border-radius: 10rpx;font-weight: lighter;">
+            <cell bind:startmessage='startmessage' bind:completemessage="completemessage" plugid='wx104a1a20c3f81ec2' 
+                        styleType='2'/>
+        </view>
+    </view>
+
+
+    <!-- 更多砍价商品 -->
+    <view class="itemwrap" >
+        <navigator
+            style="display: -webkit-flex; justify-content: space-between; font-size: 30rpx;color:#D54547;font-weight: bold;padding:20rpx"
+            url="/pages/handsel/handsel" open-type='switchTab'>
+            <view    >
+                更多商品0元砍价
+            </view>
+            <image style="height: 30rpx;width:30rpx;margin-top:10rpx" src="/image/箭头.png">
+
+            </image>
+        </navigator>
+        <scroll-view scroll-x="true" style="white-space:nowrap; width:640rpx">
+            <navigator wx:for="{{list}}" wx:for-item="item" 
+                style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx"
+                url="/pages/handsel/detail/detail?id={{item.id}}" open-data="redirect">
+                <view style="width: 180rpx; height: 180rpx; background-color: #eeeeee;">
+                    <image style="width: 180rpx; height: 180rpx; background-color: #eeeeee;" mode="aspectFill"
+                        src="{{item.image}}"></image>
+                </view>
+                <view class="itemname">{{item.name}}</view>
+                <view class="itemname"> ￥{{item.price}}元</view>
+                <view class="itemprice">0元砍价</view>
+            </navigator>
+            <navigator style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx;"
+                url="/pages/handsel/list">
+                <view style="width: 180rpx; height: 180rpx; background-color: #ffffff;" mode="aspectFill">
+                </view>
+                <view class="itemnamemore">+{{item.length}}</view>
+                <view class="itempricemore"> 查看更多单品</view>
+            </navigator>
+        </scroll-view>
+    </view>
+
+    <!-- 这部分是增信 -->
+    <view class="zengxin_wraps"   wx:if='{{settings.verify == 1}}'>
+        <view class="zengxin_title"  >彩票开奖数据作为中奖依据</view>
+        <view class="zengxin_content"  >开奖数据采用当日彩票开奖数据 确保完全公正</view>
+        <view class="zengxin_wrap"  >
+            <view class="zengxin_text"  ><image class="zengxin_image" src="/image/对号.png"></image>第三方开奖数据</view>
+            <view class="zengxin_text"  ><image class="zengxin_image" src="/image/对号.png"></image>100%正品</view>
+            <view class="zengxin_text"  ><image class="zengxin_image" src="/image/对号.png"></image>开奖公正</view>
+        </view>
+        <view class="zengxin_data_title">
+            {{settings.pre_period}}期开奖号码:{{settings.pre_code}}
+        </view>
+        <view class="zengxin_wrap2">
+            <view class="zengxin_text">
+                <view  >
+                    抽奖人次
+                </view>
+                <view  >{{settings.lottery_times}}</view>
+            </view>
+            <view class="zengxin_text">
+                <view  >排列三</view>
+                <view  >{{settings.second_reward}}人中奖</view>
+            </view>
+            <view class="zengxin_text">
+                <view  >排列五</view>
+                <view  >{{settings.first_reward}}人中奖</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 这部分是积分抽奖 -->
+    <view class="lottery_wraps" wx:if='{{settings.verify == 1}}'>
+        <block wx:for="{{lottery_list}}" wx:key="item">
+            <view class="lottery_item_wrap"   bindtap="bind_nav" data-url="/pages/wish/detail/detail?button=2&id={{item.id}}">
+                <image class="lottery_image" src="{{item.image}}" mode="aspectFill"></image>
+                <view class="lottery_text">{{item.name}}</view>
+                <view class="lottery_price">￥{{item.price}}</view>
+                <view  ><button style='color:white;background-color: #FB1621;width:190rpx;font-size:24rpx;margin-bottom:20rpx'>{{item.wish_price}}积分</button>
+                </view>
+
+            </view>
+        </block>
+    </view>
+    <!-- 广告 -->
+    <view style="margin:30rpx;"><ad unit-id="adunit-75e5ba2ac9b07eda"></ad></view>
+    <!-- 产品详情 -->
+    <view class="text_content">
+            <view wx:if="{{good.content}}">
+                <text>产品详情:
+                    {{good.content}}</text>
+            </view>
+            <view wx:for="{{good.images}}" wx:key="item">
+                <image style="width:650rpx;padding:0rpx 10rpx 0rpx 10rpx" src="{{item}}" mode="widthFix"
+                    lazy-load="false" binderror="" bindload="">
+                </image>
+            </view>
+    </view>
+</view>
+<view class="seller_wrap">
+    <text class="seller_content">0元砍 活动规则：
+        1.群成员第一次将某一商品分享到群中，视为活动发起人。
+        2.活动发起人将商品砍价为0元后即可获得商品。
+        3.活动时效为24小时。
+        4.非海淘商品的奖品发放时效为15个工作日，海淘商品奖品发放时效为30个工作日。
+    </text>
+</view>
+<view wx:if="{{good.images}}" style="margin:30rpx;"  >
+    <ad unit-id="adunit-75e5ba2ac9b07eda"></ad>
+</view>
+<view style="height:120rpx"></view>

@@ -1,0 +1,17 @@
+/* pages/user/record/intergal.wxss */
+page {
+    background-color: #f2f2f2;
+}
+
+.wrap {
+    margin: 20rpx;
+}
+
+.item_wrap {
+    background: #fff;
+    border-radius: 10rpx 10rpx 0rpx 0rpx;
+    padding: 20rpx;
+    display: -webkit-flex;
+    border-bottom: 1rpx solid #f2f2f2;
+    font-size: 26rpx;
+}

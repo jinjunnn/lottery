@@ -1,0 +1,555 @@
+page {
+    background-color: #FA3848;
+}
+
+.tips {
+    font-size: 20rpx;
+    color: #b0b0b0;
+    text-align: center;
+    margin-bottom:  30rpx ;
+    padding: 10rpx 10rpx 30rpx 10rpx;
+}
+
+.button {
+    margin: 30rpx 275rpx 30rpx 275rpx;
+    height: 200rpx;
+    width: 200rpx;
+    border-radius: 100rpx;
+    background-color: #D54547;
+    color: white;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 200rpx;
+}
+
+.root {
+    width: 100%;
+    height: 100%;
+    background-color: #70c7da;
+    position: relative;
+}
+
+.image {
+    height: 150rpx;
+    margin: 10rpx;
+    padding: 0rpx 0rpx 0rpx 30rpx;
+    width:520rpx;
+}
+
+
+.ticket {
+    background-color: #fff;
+    border-radius: 10rpx;
+    width: 420rpx;
+    height: auto;
+    font-size: 22rpx;
+    color: black;
+    text-align: left;
+    padding: 30rpx;
+    margin: 50rpx 0rpx 80rpx 0rpx;
+}
+
+.ticket2 {
+    background-color: #fff;
+    border-radius: 10rpx;
+    width: 520rpx;
+    height: auto;
+    font-size: 28rpx;
+    color: black;
+    text-align: left;
+    padding: 30rpx;
+    margin: 0rpx 0rpx 30rpx 0rpx;
+}
+
+/* pages/user/promotion_record/detail/detail.wxss */
+
+.wrap {
+    margin: 10rpx 40rpx 20rpx 40rpx;
+}
+
+
+.title_sub {
+    font-size: 24rpx;
+}
+
+.imagesss {
+    width: 40rpx;
+    height: 40rpx;
+    padding: 20rpx 20rpx 0rpx 590rpx;
+}
+
+.content_box {
+    box-sizing: border-box;
+    width: 48.5%;
+    float: left;
+    height: 400rpx;
+    border: 1rpx solid #FA3848;
+    margin: 30rpx 10rpx 30rpx 0rpx;
+}
+
+.box_image {
+    height: 45rpx;
+    width: 45rpx;
+    margin: 30rpx;
+}
+
+.box_title {
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    font-size: 24rpx;
+    color: #b0b0b0;
+}
+
+.box_content {
+    font-size: 24rpx;
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    height: 110rpx;
+}
+
+.box_button {
+    text-align: center;
+    width: 270rpx;
+    height: 60rpx;
+    font-size: 24rpx;
+    background-color: #FA3848;
+    color: white;
+}
+
+.lottery_notice_sub_title {
+    font-weight: bold;
+    font-size: 24rpx;
+    padding-bottom: 10rpx;
+}
+
+.lottery_notice {
+    width: 710rpx;
+    font-size: 28rpx;
+}
+
+.codewrap {
+    display: -webkit-flex;
+    justify-content: space-between;
+
+}
+
+.codesubwrap {
+    height: 200rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 5rpx;
+    width: 140rpx;
+    margin: 10rpx;
+}
+
+.puke_icon {
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 5rpx;
+}
+
+.puke_icon_right {
+    height: 30rpx;
+    width: 30rpx;
+    text-align: right;
+    transform: rotate(180deg);
+    margin-left: 105rpx;
+}
+
+.sub_button {
+    position: absolute;
+    bottom: 60rpx;
+    width: 670rpx;
+}
+
+.sub_button_not_get {
+    position: absolute;
+    bottom: 120rpx;
+    font-size: 28rpx;
+    text-align: center;
+    width: 670rpx;
+}
+
+.sub_text_not_get {
+    position: absolute;
+    bottom: 70rpx;
+    font-size: 28rpx;
+    text-align: center;
+    width: 670rpx;
+}
+
+/* 自定义顶部 */
+.inaver._30f2b4d {
+    box-sizing: border-box;
+    padding-top: 44rpx;
+    width: 100vw;
+    height: 160rpx;
+    display: flex;
+    position: fixed;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+}
+
+.inaver .left._30f2b4d {
+    width: 240rpx;
+    height: 100rpx;
+    margin: 8rpx;
+}
+
+.inaver .left image.icon._30f2b4d {
+    width: 40rpx;
+    height: 40rpx;
+    padding: 20rpx;
+    margin: 20rpx;
+}
+
+.inaver .center._30f2b4d {
+    height: 100rpx;
+    line-height: 100rpx;
+    flex: 1;
+    margin: 20rpx;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 36rpx;
+}
+
+.inaver .right._30f2b4d {
+    width: 240rpx;
+    height: 100rpx;
+    margin: 8rpx;
+}
+
+.protect-inaver._30f2b4d {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 160rpx;
+}
+
+.good_name {
+    width: 660rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.images_title {
+    font-size: 40rpx;
+    margin: 20rpx;
+}
+
+
+
+/* 以下是弹出框 */
+.commodity_screen {
+    background-color: #FFFFFF;
+    color: #fff;
+    width: 650rpx;
+    height: 700prx;
+    border-radius: 20rpx;
+    opacity: 1;
+    overflow: hidden;
+    z-index: 100100;
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    margin: 0rpx 50rpx 0rpx 50rpx;
+}
+
+
+.bg_color {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10000rpx;
+}
+
+/* .wrap_show{
+    opacity: 1;
+}
+
+.wrap_notshow{
+    opacity: 0.6;
+    background: gray;
+
+} */
+.modal_wrap {
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    text-align: center;
+}
+
+
+.sub_title {
+    font-size: 24rpx;
+    padding-bottom: 2vh;
+}
+
+.model_image {
+    width: 300rpx;
+    height: 300rpx;
+    border-radius: 5rpx;
+    border: 3rpx solid white;
+}
+
+.model_content {
+    font-size: 24rpx;
+}
+
+.modal_btn_wrap {
+    width: 650rpx;
+    background-color: white;
+}
+
+.button_wrap {
+    display: -webkit-flex;
+    justify-content: space-around;
+    padding: 10rpx 0rpx 40rpx 0rpx;
+}
+
+.button_item {
+    margin: 20rpx;
+    width: 275rpx;
+}
+
+/* css3 垂直居中 */
+.right_button {
+    width: 220rpx;
+    height: 70rpx;
+    background-color: #FA3848;
+    color: white;
+    font-size: 28rpx;
+    border-radius: 35rpx;
+    border: 1rpx solid #FA3848;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+
+}
+
+.left_button {
+    width: 220rpx;
+    height: 70rpx;
+    background-color: #ffe650;
+    color: white;
+    font-size: 28rpx;
+    border-radius: 35rpx;
+    border: 1rpx solid #ffe650;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+}
+
+.heihei {
+    font-size: 24rpx;
+    color: black;
+    text-align: center;
+    padding-bottom: 40rpx;
+}
+
+.close_icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.bottom {
+    border-top: 1rpx solid #b0b0b0;
+    position: fixed;
+    height: 140rpx;
+    bottom: 0;
+    z-index: 5000;
+    background-color: #FFFFFF;
+    width: 750rpx;
+    display: -webkit-flex;
+
+}
+
+.bottom_button {
+    width: 200rpx;
+    color: #303030;
+}
+
+.seller {
+    display: -webkit-flex;
+    justify-content: space-between;
+    margin: 25rpx;
+}
+
+.seller_item {
+    display: -webkit-flex;
+    justify-content: start;
+}
+
+.seller_content {
+    margin: 35rpx;
+    color: #0b0b0b;
+    font-size: 24rpx;
+}
+
+
+.bottom_ad{
+    position: fixed;
+    bottom: 0rpx;
+    width: 750rpx;
+}
+
+.title {
+    margin: 20rpx 30rpx 0rpx 30rpx;
+    padding: 30rpx;
+    background-color: #f6f6f6;
+    border-radius: 20rpx;
+}
+
+.title_image_wrap {
+    width: 240rpx;
+    height: 240rpx;
+    background-color: #ffffff;
+}
+
+.title_content_wrap {
+    font-size: 28rpx;
+    height: 210rpx;
+    width: 440rpx;
+    background-color: #ffffff;
+    padding: 15rpx;
+}
+
+.banner_image {
+    width: 240rpx;
+    height: 240rpx;
+
+    /* padding:10rpx 150rpx 10rpx 195rpx;
+    border-radius: 20rpx 20rpx 0rpx 0rpx; */
+}
+
+
+.wish_wraps {
+}
+
+.wish_wrap {
+    padding: 0rpx 10rpx 0rpx 10rpx;
+    border-radius: 5rpx;
+    background-color: white;
+    display: -webkit-flex;
+    justify-content: space-around;
+}
+
+.wish_image_wrap {
+    width: 70rpx;
+    height: 70rpx;
+    padding: 25rpx 10rpx 20rpx 10rpx;
+}
+
+.wish_image {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+}
+
+.wish_image2 {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 5rpx;
+    margin-top: 15rpx;
+}
+
+.wish_content_wrap {
+    width: 410rpx;
+    padding-top: 25rpx;
+}
+
+
+.wish_content_title {
+    font-size: 28rpx;
+    /* 多行文字溢出 */
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.wish_content_content {
+    font-size: 24rpx;
+    color: #b0b0b0;
+}
+
+
+.text_name {
+    font-size: 26rpx;
+    font-weight: bold;
+    /* 多行文字溢出 */
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.text_detail {
+    color: #D54547;
+    font-size: 22rpx;
+    font-weight: bold;
+}
+
+.content_wrap{
+    
+    margin: 20rpx 30rpx 0rpx 30rpx;
+    padding:10rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+}
+
+.seller_wrap {
+    background-color: #ffffff;
+    padding: 20rpx;
+    margin: 30rpx;
+    border-radius: 10rpx;
+}
+
+.daojishi {
+    text-align: center;
+    font-size: 24rpx;
+    padding: 20rpx;
+    color: #b0b0b0;
+}
+
+.seller {
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+
+.seller_item {
+    display: -webkit-flex;
+    justify-content: start;
+}
+
+.seller_content {
+    margin: 35rpx;
+    color: #0b0b0b;
+    font-size: 24rpx;
+}
+
+.bottom_ad {
+    position: fixed;
+    bottom: 0rpx;
+    width: 750rpx;
+}
+
+.lottery_box {
+    display: -webkit-flex;
+    justify-content: space-around;
+    color:#ffffff;
+    margin:40rpx 0rpx 40rpx 0rpx;
+}
+
+.lottery_box_item{
+    background-color: #FA3848;
+    font-size: 40rpx;
+    border-radius: 50%;
+    height: 75rpx;
+    width:75rpx;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+}

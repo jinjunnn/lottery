@@ -1,0 +1,6 @@
+<view class="wrap">
+    <view wx:for="{{record}}" wx:for-item="item" wx:for-index="label_index">
+        <view class="item_wrap">{{item.content}}</view>
+    </view>
+</view> 
+

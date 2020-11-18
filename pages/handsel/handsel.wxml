@@ -1,0 +1,51 @@
+
+<view class="handsel_wrap" wx:if='{{my_list}}'>
+    <view bindtap="bind_nav" data-url="/pages/handsel/detail/detail?id={{goods_info.id}}">
+        <view style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621"
+            wx:if="{{my_list.paid - my_list.total>=0}}">
+            已完成砍价 联系客服领取奖励
+        </view>
+        <view style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621" 
+                wx:elif="{{!expired}}">
+            正在进行中:{{countDownHour}}时:{{countDownMinute}}分:{{countDownSecond}}秒
+        </view>
+        <view style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621" wx:else>
+            砍价已过期 重新发起砍价
+        </view>
+        <view class="title"  >
+            <view class="title_image_wrap">
+                <image src="{{goods_info.image}}" class="banner_image"></image>
+            </view>
+            <view class="title_content_wrap">
+                <view class='text_name'>{{goods_info.name}}</view>
+                <view class="text_detail"  >{{goods_info.price}}元</view>
+                <!-- 已经完成砍价 -->
+                <block wx:if="{{my_list.paid - my_list.total>=0}}">
+                    <view class="button_text">完成砍价，快去联系客服领取奖品吧</view>
+                </block>
+                <block wx:elif='{{!expired}}'>
+                    <view class="button_text">已砍{{my_list.paid/100}}元，预计{{my_list.left_times}}个新用户砍价即可完成.</view>
+                </block>
+                <block wx:else>
+                    <view class="button_text">已砍{{my_list.paid/100}}元。</view>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view style="text-align: center;font-size: 28rpx;font-weight: bolder;color:#FB1621" bindtap="bind_nav" data-url="/pages/handsel/list">查看我的砍价列表</view>
+</view>
+
+
+<view class="wraps"  >
+    <block wx:for="{{sell_list}}" wx:key="item">
+        <view class="item_wrap"   bindtap="bind_nav" data-url="./detail/detail?id={{item.id}}">
+            <image class="image" src="{{item.image}}" mode="aspectFill" lazy-load="false" binderror="" bindload=""></image>
+            <view class="text"  >{{item.name}}</view>
+            <view class="price"  >￥{{item.price}}</view>
+            <view class="text">平均砍价<text style="color:#FB1621">{{item.times}}</text>次砍完</view>
+            <view    ><button style='color:white;background-color: #FB1621;width:190rpx;font-size:24rpx;margin-bottom:20rpx'>0元砍</button></view>
+        </view>
+        <view class="load_add" wx:if="{{item.ad_display}}"  ><ad unit-id="adunit-a507ccc799c08566"></ad></view>
+    </block>
+</view>

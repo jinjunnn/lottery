@@ -1,0 +1,83 @@
+{
+  "pages":[
+    "pages/wish/wish",
+    "pages/wish/detail/detail",
+
+    "pages/shop/shop",
+    "pages/shop/detail/detail",
+
+    "pages/group/group",
+    "pages/group/detail/detail",
+
+    "pages/limit/limit",
+    "pages/limit/detail/detail",
+
+    "pages/lottery/lottery",
+    "pages/lottery/detail/detail",
+    "pages/lottery/list/list",
+
+    "pages/index/index",
+    "pages/handsel/list",
+    "pages/handsel/handsel",
+    "pages/handsel/detail/detail",
+
+    "pages/share/share",
+    
+    "pages/user/user",
+    "pages/user/record/record",
+    "pages/user/record/wish",
+    "pages/user/record/exchange",
+    "pages/user/record/get",
+    "pages/user/record/intergal",
+    "pages/user/record/limit",
+    "pages/user/record/group",
+    "pages/user/contact/contact"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#D54547",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/wish/wish",
+        "iconPath": "image/b1.png",
+        "selectedIconPath": "image/b2.png",
+        "text": "天天抽奖"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "iconPath": "image/icon_shopping1.png",
+        "selectedIconPath": "image/icon_shopping.png",
+        "text": "海淘小店"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/e1.png",
+        "selectedIconPath": "image/e2.png",
+        "text": "我"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "chatGroupPlugin": {
+        "version": "1.0.2",
+        "provider": "wxaae6519cee98d824"
+    },
+    "contactPlugin": {
+      "version": "1.3.0",
+      "provider": "wx104a1a20c3f81ec2"
+    }
+   }
+}
+
+
+

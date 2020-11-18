@@ -1,0 +1,122 @@
+<view class="first"  >
+    <!-- banner -->
+    <view   class="first_a"   wx:if="{{settings.banner}}"
+            bindtap="bind_share">
+        <image class="first_banner" src="{{settings.banner}}"></image>
+    </view>
+    <!-- subbanner -->
+    <!-- <view class="first_a"   wx:if="{{settings.sub_banner}}">
+        <image class="first_sub_banner" src="{{settings.sub_banner}}" lazy-load="false" binderror="" bindload="">
+        </image>
+    </view> -->
+    <!-- 主题 -->
+    <view class="first_b"  >
+        <view bindtap="bind_share">
+            <image class="first_image"
+                src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/e7cc9a1bf655cc30d843/%E8%AE%A2%E9%98%85.png"
+                lazy-load="false" binderror="" bindload=""></image>
+            <view class="first_text"   plain="true">
+                0元砍
+            </view>
+        </view>
+        <view bindtap="bind_jiaocheng">
+            <image class="first_image"
+                src="http://lc-XBtceMXX.cn-n1.lcfile.com/bfe0f7c60a16b6057950/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B.png"
+                lazy-load="false" binderror="" bindload=""></image>
+            <view class="first_text"  >
+                积分夺宝
+            </view>
+        </view>
+        <view bindtap="bind_team">
+            <image class="first_image"
+                src="http://lc-XBtceMXX.cn-n1.lcfile.com/cc9ee2d36a4cb2b46c1c/%E6%88%91%E7%9A%84%E7%A4%BE%E7%BE%A4.png"
+                lazy-load="false" binderror="" bindload=""></image>
+            <view class="first_text"  >
+                视频抽奖
+            </view>
+        </view>
+        <view bindtap="bind_school">
+            <image class="first_image"
+                src="http://lc-XBtceMXX.cn-n1.lcfile.com/e86099a0e2c6fe3a3374/%E5%95%86%E5%AD%A6%E9%99%A202.png"
+                lazy-load="false" binderror="" bindload=""></image>
+            <view class="first_text"  >
+                赚积分
+            </view>
+        </view>
+    </view>
+</view>
+
+<view style="height:10rpx; background-color:#eee"></view>
+<view class="itemwrap">
+    <navigator style="font-size: 30rpx;color:#D54547;font-weight: bold;padding:20rpx" url="/pages/handsel/list">
+        更多商品0元砍价
+    </navigator>
+    <scroll-view scroll-x="true" style="white-space:nowrap; width:750rpx">
+        <navigator wx:for="{{handsel}}" wx:for-item="item" style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx"
+            url="/pages/handsel/detail/detail?id={{item.id}}" open-data="redirect">
+            <view style="width: 270rpx; height: 270rpx; background-color: #eeeeee;">
+                <image style="width: 270rpx; height: 270rpx; background-color: #eeeeee;" mode="aspectFill"
+                    src="{{item.image}}"></image>
+            </view>
+            <view class="itemname">{{item.name}}</view>
+            <view class="itemname"> ￥{{item.price}}元</view>
+            <view class="itemprice">0元砍价</view>
+        </navigator>
+        <navigator style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx;" url="/pages/handsel/list">
+            <view style="width: 270rpx; height: 270rpx; background-color: #ffffff;" mode="aspectFill">
+            </view>
+            <view class="itemnamemore">+{{item.length}}</view>
+            <view class="itempricemore"> 查看更多单品</view>
+        </navigator>
+    </scroll-view>
+</view>
+
+<view style="height:10rpx; background-color:#eee"></view>
+<view class="itemwrap">
+    <navigator style="font-size: 30rpx;color:#D54547;font-weight: bold;padding:20rpx" url="/pages/handsel/list">
+        更多商品0元砍价
+    </navigator>
+    <scroll-view scroll-x="true" style="white-space:nowrap; width:750rpx">
+        <navigator wx:for="{{wish}}" wx:for-item="item" style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx"
+            url="/pages/handsel/detail/detail?id={{item.id}}" open-data="redirect">
+            <view style="width: 270rpx; height: 270rpx; background-color: #eeeeee;">
+                <image style="width: 270rpx; height: 270rpx; background-color: #eeeeee;" mode="aspectFill"
+                    src="{{item.image}}"></image>
+            </view>
+            <view class="itemname">{{item.name}}</view>
+            <view class="itemname"> ￥{{item.price}}元</view>
+            <view class="itemprice">0元砍价</view>
+        </navigator>
+        <navigator style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx;" url="/pages/handsel/list">
+            <view style="width: 270rpx; height: 270rpx; background-color: #ffffff;" mode="aspectFill">
+            </view>
+            <view class="itemnamemore">+{{item.length}}</view>
+            <view class="itempricemore"> 查看更多单品</view>
+        </navigator>
+    </scroll-view>
+</view>
+<view style="height:10rpx; background-color:#eee"></view>
+<view class="itemwrap">
+    <navigator style="font-size: 30rpx;color:#D54547;font-weight: bold;padding:20rpx" url="/pages/handsel/list">
+        更多商品0元砍价
+    </navigator>
+    <scroll-view scroll-x="true" style="white-space:nowrap; width:750rpx">
+        <navigator wx:for="{{free}}" wx:for-item="item" style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx"
+            url="/pages/handsel/detail/detail?id={{item.id}}" open-data="redirect">
+            <view style="width: 270rpx; height: 270rpx; background-color: #eeeeee;">
+                <image style="width: 270rpx; height: 270rpx; background-color: #eeeeee;" mode="aspectFill"
+                    src="{{item.image}}"></image>
+            </view>
+            <view class="itemname">{{item.name}}</view>
+            <view class="itemname"> ￥{{item.price}}元</view>
+            <view class="itemprice">0元砍价</view>
+        </navigator>
+        <navigator style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx;" url="/pages/handsel/list">
+            <view style="width: 270rpx; height: 270rpx; background-color: #ffffff;" mode="aspectFill">
+            </view>
+            <view class="itemnamemore">+{{item.length}}</view>
+            <view class="itempricemore"> 查看更多单品</view>
+        </navigator>
+    </scroll-view>
+</view>
+<view style="height:10rpx; background-color:#eee"></view>

@@ -1,0 +1,304 @@
+<!-- 这里是微信底部弹出框的代码   这部分代码一定要放在最上面-->
+<view class="{{backgroundColor}}" catchtouchmove="true">
+    <view class="commodity_screen" wx:if="{{showModalStatus}}" touchmove="hideModal">
+        <image class="imagesss"
+            src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png"
+            mode="widthFix" lazy-load="false" binderror="" bindload=""
+            bindtap="bind_close">
+        </image>
+        <view class="modal_wrap"  >
+            <view class="ticket2"  >
+                <view    >
+                    抽奖类型：<text wx:if="{{ticket.type==0}}">体育彩票排列三</text><text wx:if="{{ticket.type==1}}">排列四</text><text
+                        wx:if="{{ticket.type==2}}">体育彩票排列五</text>
+                </view>
+                <view    >
+                    开奖期次：{{ticket.period}}
+                </view>
+                <view class="lottery_box">
+                    <block wx:for="{{ticket.code_list}}">
+                        <view class="lottery_box_item">
+                            {{item}}
+                        </view>
+                    </block>
+                </view>
+                <view  wx:if="{{ticket.type==0}}"><text>温馨提示：每晚20:30-21:00体育彩票福利三的开奖结果作为本期中奖的幸运数字。
+
+                        第三方数据作为本平台开奖数据确保您的每一次抽奖公正。
+                    </text>
+                    
+                </view>
+                <view wx:if="{{ticket.type==2}}"><text>每晚20:30-21:00体育彩票福利三的开奖结果作为本期中奖的幸运数字。
+
+                    第三方数据作为本平台开奖数据确保您的每一次抽奖公正。</text>
+                </view>
+            </view>
+        </view>
+        <view class="modal_btn_wrap"  >
+            <view class="button_wrap"  >
+                <button style="width:450rpx; color:#fff; background-color: #ffe650;" open-type="share"
+                    bindtap="bind_share">
+                    分享好友
+                </button>
+                <!-- <button style="width:220rpx; color:#fff; background-color: #D54547;" bindtap="lottory">
+                    继续抽奖
+                </button> -->
+            </view>
+            <view class="heihei"  >
+                抽奖一时爽！一直抽奖一直爽！
+            </view>
+        </view>
+    </view>
+    <view class="commodity_screen" wx:elif="{{showqrcode}}" touchmove="hide_qrcode">
+        <!-- 没有share -->
+        <view class="modal_btn_wrap"  >
+            <image class="imagesss"
+                src="http://lc-0eaec5sq.cn-n1.lcfile.com/8ecb595e9071b1998f4f/%E9%94%99%E5%8F%B7-%E6%97%A0%E6%A1%86.png"
+                mode="widthFix" bindtap="bind_close_qrcode">
+            </image>
+            <view class="modal_image">
+                <image style="height: 240rpx;width:240rpx; padding-bottom: 20rpx;padding:0rpx 205rpx 0rpx 205rpx" src="{{good.seller.image}}">
+                </image>
+            </view>
+            <view class="heihei"  >
+                <text>
+                    截屏加店主微信有好礼相赠
+                    {{good.seller.appid}}
+                </text>
+            </view>
+            <button style="width:450rpx; color:#fff;background-color: #D54547;" bindtap="copy_wechatid">复制店主微信号</button>
+            <view style="height:60rpx"></view>
+        </view>
+    </view>
+    <view wx:if="{{showModalStatus||showqrcode}}" touchmove="hideModal" class="bottom_ad">
+        <ad unit-id="adunit-75e5ba2ac9b07eda"></ad>
+    </view>
+</view>
+
+
+
+<!-- 头部 -->
+<view class="title"  >
+    <view style="display: -webkit-flex;"  >
+        <view class="title_image_wrap">
+            <image src="{{good.image}}" class="banner_image" mode="widthFix"></image>
+        </view>
+        <view class="title_content_wrap">
+            <view class='text_name'>{{good.name}}</view>
+            <view class="text_detail" wx:if="{{button==2}}">开奖方式:
+                <text wx:if="{{good.type==0}}">体育彩票排列三</text>
+                <text wx:else>体育彩票排列三</text>
+            </view>
+            <view class="text_detail"   wx:if="{{button==2}}">
+                消耗积分：{{good.wish_price}}
+            </view>
+        </view>
+    </view>
+    <view style="border:1rpx solid white"  >
+        <button bindtap="bind_loadad" wx:if="{{!interstitialAd}}"
+            style="background-color: #FA3848;height: 240rpx;width:240rpx;border-radius:120rpx;color:#fff;text-align:center;line-height: 200rpx; margin:40rpx 195rpx 40rpx 195rpx;font-size:30rpx;">
+            加载中</button>
+        <button bindtap="lottory" wx:elif="{{button==2}}"
+            style="background-color: #FA3848;height: 240rpx;width:240rpx;border-radius:120rpx;color:#fff;text-align:center;line-height: 200rpx; margin:40rpx 195rpx 40rpx 195rpx;font-size: 30rpx;">
+            积分抽奖</button>
+        <!-- <view class="tips"   wx:if="{{button==1}}">
+            您有{{balance}}积分，兑换彩票需消耗200积分
+        </view> -->
+        <view class="tips"   wx:if="{{button==2}}">
+            您有{{balance}}积分，本次抽奖将消耗{{good.wish_price}}积分
+        </view>
+    </view>
+
+    <view class="wish_wraps"  >
+        <view class="wish_wrap" style="background-color: #F2FEFF;">
+            <view class="wish_image_wrap">
+                <image class="wish_image" src="/image/icon05.png"></image>
+            </view>
+            <view class="wish_content_wrap">
+                <view class="wish_content_title">观看激励视频广告</view>
+                <view class="wish_content_content">随机获得15-50积分</view>
+            </view>
+            <view>
+                <button
+                    style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top:30rpx;opacity: 0.7;;"
+                    open-type="" wx:if="{{!adUnitId}}">加载</button>
+                <button
+                    style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top:30rpx;"
+                    open-type="" bindtap='bind_chick' wx:else>观看</button>
+            </view>
+        </view>
+        <!-- 这段是积分兑换和积分获得 -->
+        <view class="wish_wrap" style="background-color: #FFFDEE;" wx:if="{{good.seller&&good.seller.type==1}}"
+            data-appid="{{good.seller.appid}}" bindtap="bind_display_qrcode">
+            <view class="wish_image_wrap">
+                <image class="wish_image" src="/image/icon06.png"></image>
+            </view>
+            <view class="wish_content_wrap">
+                <view class="wish_content_title">关注赞助商奖励</view>
+                <view class="wish_content_content">关注赞助商微信最多100积分</view>
+            </view>
+            <view>
+                <button
+                    style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top: 30rpx;"
+                    open-type="" bindtap="bind_display_qrcode">关注</button>
+            </view>
+        </view>
+        <!-- 这段是积分兑换和积分获得 -->
+        <view class="wish_wrap" style="background-color: #FFFDEE;"  wx:else
+            data-appid="wx8fc9502b8f83f501" data-path="{{good.seller.path}}" data-data="{{good.seller.data}}">
+            <view class="wish_image_wrap">
+                <image class="wish_image" src="/image/icon06.png"></image>
+            </view>
+            <view class="wish_content_wrap">
+                <view class="wish_content_title">快去赞助商店铺看看吧</view>
+                <view class="wish_content_content">随机获得部分积分奖励</view>
+            </view>
+            <view>
+                <button style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top: 30rpx;"
+                    open-type="" bindtap="bind_nav_mini_program" data-appid="wx8fc9502b8f83f501"
+                    data-path="{{good.seller.path}}" data-data="{{good.seller.data}}">逛店</button>
+            </view>
+        </view>
+        <!-- 这段是积分兑换和积分获得 -->
+        <view class="wish_wrap" style="background-color: #FFF9FF;">
+            <view class="wish_image_wrap">
+                <image class="wish_image" src="/image/icon07.png"></image>
+            </view>
+            <view class="wish_content_wrap">
+                <view class="wish_content_title">邀请好友参与抽奖</view>
+                <view class="wish_content_content">好友通过小程序卡片助力可随机获得10-20积分</view>
+            </view>
+            <view>
+                <button
+                    style="width: 150rpx;font-size: 24rpx;background-color: #FA3848;color:white;margin-top: 30rpx;"
+                    open-type="share">分享</button>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="content_wrap"  >
+    <view wx:for="{{good.images}}" wx:key="item">
+        <image style="width:730rpx;padding:0rpx 10rpx 0rpx 10rpx" src="{{item}}" mode="widthFix" lazy-load="false"
+            binderror="" bindload="">
+
+        </image>
+    </view>
+    <view style="margin:30rpx;" wx:if="{{button==2}}">
+        <view style="font-size:28rpx;"><text class="lottery_notice_sub_title">抽奖说明</text></view>
+        <view style="font-size:24rpx;">
+            <text>体育彩票福利三:
+                您的每次抽奖系统会自动生成一个三位数的随机数，如下图蓝色球所示。
+                每天晚上20:30-21:00分体育彩票福利三将公布开奖结果，如下图红色球所示。
+                如果您抽奖的数字与体育彩票福利三公布的开奖数字一致，则视为中奖。
+                本平台是唯一选择第三方公布的数据作为开奖结果的平台，以确保您抽奖的完全公开公平公正。
+            </text>
+        </view>
+        <image class="image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/8b3a1c071ae567a41bea/Slice%202.png"
+            mode="aspectFit" lazy-load="false" binderror="" bindload="">
+        </image>
+        <view style="font-size:24rpx"> 
+            <text>体育彩票福利五:
+                您的每次抽奖系统会自动生成一个五位数的随机数，如下图蓝色球所示。
+                每天晚上20:30-21:00分体育彩票福利五将公布开奖结果，如下图红色球所示。
+                如果您抽奖的数字与体育彩票福利五公布的开奖数字一致，则视为中奖。
+                本平台是唯一选择第五方公布的数据作为开奖结果的平台，以确保您抽奖的完全公开公平公正。
+            </text>
+        </view>
+        <image class="image" src="http://lc-0EaEC5sQ.cn-n1.lcfile.com/13f736705e18badd104f/%E5%88%87%E7%89%871.png"
+            mode="aspectFit" lazy-load="false" binderror="" bindload="">
+        </image>
+    </view>
+    <view style="margin:30rpx" wx:elif="{{button==1}}">
+        <view style="font-size:28rpx;"><text class="lottery_notice_sub_title">兑换说明</text></view>
+        <view style="font-size:24rpx; color:#b0b0b0"></view>
+    </view>
+</view>
+
+<!-- 赞助商信息 -->
+<view class='seller_wrap'>
+    <view class="seller" wx:if="{{good.seller.type==1}}" bindtap="bind_display_qrcode"
+        data-appid="{{good.seller.appid}}">
+        <view class="seller_item">
+            <image style="width:40rpx;height:40rpx;margin:5rpx 5rpx 0rpx 0rpx" src="{{icon_wechat}}"
+                mode="aspectFit"></image>
+            <text style="color:#20BF64; font-weight: bold;">{{good.seller.name}}</text>
+        </view>
+        <view class="seller_item">
+            <image style="width:40rpx;height:40rpx;margin:5rpx 15rpx 0rpx 10rpx" src="{{icon_wechat_add}}"
+                mode="aspectFit">
+            </image>
+            <text style="color:#20BF64">加好友</text>
+        </view>
+    </view>
+    <!-- <view class="seller" wx:elif="{{good.seller.type==0}}" bindtap="bind_display_qrcode"
+        data-appid="{{good.seller.appid}}">
+    </view> -->
+    <view class="seller" wx:else bindtap="bind_nav_mini_program" data-appid="wx8fc9502b8f83f501"
+        data-path="{{good.seller.path}}" data-data="{{good.seller.data}}">
+        <view class="seller_item">
+            <image style="width:40rpx;height:40rpx;margin:0rpx 15rpx 0rpx 10rpx" src="{{icon_xiaochengxu01}}"
+                mode="aspectFit"></image>
+            <text style="color:#20BF64; font-weight: bold;">SUGAR全球快闪店赞助</text>
+        </view>
+        <view class="seller_item">
+            <image style="width:25rpx;height:25rpx;margin:10rpx 5rpx 0rpx 10rpx" src="{{icon_xiaochengxu02}}"
+                mode="aspectFit">
+            </image>
+            <text style="color:#20BF64 ;font-weight: bold;">去逛逛</text>
+        </view>
+    </view>
+    <view class="seller_content" wx:if="{{good.seller.type==1||good.seller.type==0}}" hover-class="none"
+        hover-stop-propagation="false">
+        {{good.seller.content}}
+    </view>
+    <view class="seller_content" wx:else  >
+
+        <view wx:if="{{good.content}}">
+            <text> 产品详情:{{good.content}}
+            </text>
+        </view>
+        <view wx:if="{{good.content}}">
+            <text   selectable="false" space="false" decode="false">
+                赞助商留言
+                SUGAR全球快闪店是一家主营日货、美货的直营社交电商。。。
+                每一件商品均专业采购亲自采购。。。
+                如没有特殊说明商品均非免税版。。。
+                社交直营 口碑传播
+                不议价 部分商品送小样 分享好友有红包
+                我们的导购均来自丝芙兰 非常熟悉商品
+                小姐姐在彩妆护肤有问题可以随时问我们哦
+            </text>
+        </view>
+    </view>
+    <view style="margin:0rpx;padding:0rpx; background-color: #ffffff; border-radius: 10rpx;font-weight: lighter;">
+        <cell bind:startmessage='startmessage' bind:completemessage="completemessage" plugid='wx104a1a20c3f81ec2'
+            styleType='2' />
+    </view>
+</view>
+<view class="seller_wrap">
+    <text class="seller_content">
+        0元抽 活动规则：
+        1.非海淘商品的奖品发放时效为15个工作日，海淘商品奖品发放时效为30个工作日。
+    </text>
+</view>
+<view wx:if="{{good.images}}" class="title"  >
+    <ad unit-id="adunit-75e5ba2ac9b07eda"></ad>
+</view>
+
+<view style="height:120rpx"></view>
+
+<!-- <view class="bottom" wx:if="{{!showModalStatus}}">
+    <button class="bottom_button" bindtap="bind_nav" data-url="/pages/user/record/wish" wx:if="{{button==2}}">
+        抽奖记录
+    </button>
+    <button class="bottom_button" bindtap="bind_nav" data-url="/pages/user/record/exchange" wx:if="{{button==1}}">
+        兑换记录
+    </button>
+    <button class="bottom_button" open-type="" bindtap="bind_contact" data-url="/pages/user/contact/contact">
+        联系客服
+    </button>
+    <button class="bottom_button" open-type="share" bindtap="">
+        分享好友
+    </button>
+</view> -->

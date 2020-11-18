@@ -1,0 +1,23 @@
+<view class="first"  >
+    <view wx:for="{{sell_list}}" wx:for-item="goods" bindtap="bind_nav"
+        data-url="../detail/detail?id={{goods.id}}" style="display:inline-block; margin:0rpx 0rpx 0rpx 15rpx"
+        url="./list/detail/detail?key={{goods.key}}">
+        <view class="itemwrap"  >
+            <view style="width: 200rpx; height: 200rpx; background-color: #eeeeee;">
+                <image style="width: 200rpx; height: 200rpx; background-color: #eeeeee;" mode="aspectFill"
+                    src="{{goods.images}}"></image>
+            </view>
+            <view class="text_wrap"  >
+                <view class="itemsubname">{{goods.name}}</view>
+                <view class="itemprice" wx:if="{{goods.type==0}}">中奖锚定天天体彩排列三 | 每日21:50开奖</view>
+                <view class="itemprice" wx:else="{{goods.type==2}}">中奖锚定天天体彩排列五 | 每日21:50开奖</view>
+                <view class="itemnamemore">
+                    产品已验真
+                </view>
+            </view>
+        </view>
+        <view class="load_add" wx:if="{{goods.ad_display}}"  >
+            <ad unit-id="adunit-a507ccc799c08566"></ad>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,64 @@
+<view class="handsel_wrap">
+    <view class="handsel_title_wrap">
+        <view class="">我参与的限时抽奖</view>
+        <view style="color:#FA3848" bindtap='bindnavto'>查看更多</view>
+    </view>
+    <view  wx:for="{{data}}" wx:key="item">
+        <view class="handsel_title" >
+            <view class="handsel_title_image_wrap">
+                <image src="{{item.goods_info.image}}" class="handsel_banner_image"></image>
+            </view>
+            <view class="handsel_title_content_wrap">
+                <view class='handsel_text_name'>{{item.goods_info.name}}</view>
+                <block wx:if="{{item.lottery_times - item.goods_info.ll_times >=0}}">
+                    <view class="handsel_button_text">
+                        恭喜您完成助力活动！
+                    </view>
+                </block>
+                <block wx:elif='{{today !=item.code}}'>
+                    <view class="handsel_button_text">
+                        助力活动已过期。限定助力活动助力次数仅限当日有效。{{item.code}}日助力{{item.lottery_times}}次。
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="handsel_button_text">
+                        已经进行{{item.lottery_times}}次助力，还差{{item.goods_info.ll_times - item.lottery_times}}次助力即可领奖。
+                    </view>
+                </block>
+                <view style='text-align: right;'>
+                    <button class='handsel_button' plain='true' type='warn' size="mini" wx:if='{{item.lottery_times - item.goods_info.ll_times >=0}}' bindtap='bind_click' data-msg='{{item}}'>领取奖励</button>
+                    <button class='handsel_button' plain='true' type='warn' size="mini" wx:elif='{{today ==item.code}}' open-type="share" data-times='{{item.goods_info.ll_times}}' data-image='{{item.goods_info.image}}' data-gid='{{item.goods_info.gid}}'>分享</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="handsel_title_wrap" wx:if="{{lottery_list}}"><view class="">新的限时助力</view></view>
+<view wx:for="{{lottery_list}}" wx:key="item" wx:if="{{lottery_list}}">
+    <view class="wrap" wx:for-item="goods" bindtap="bind_nav" data-url="./detail/detail?id={{item.id}}"
+        data-ended="{{item.group_lottery_ended}}">
+        <image src="{{item.image}}" class="image" mode='aspectFill'></image>
+        <view class="title">
+            {{item.name}}
+        </view>
+        <view class="content_wrap">
+            <view class="left_content">
+                <view class="text_wrap2"  >
+                    <view class="itemprice">邀请{{item.ll_times}}好友助力即可领取奖励。</view>
+                    <view class="itemprice"></view>
+                </view>
+            </view>
+            <view class="right_content" wx:if="{{!item.group_lottery_ended}}">
+                <view class="right_item">立即参与</view>
+            </view>
+            <view class="right_content" wx:elif="{{item.group_lottery_ended==1}}">
+                <view class="right_item" style='background-color:gray'>已结束</view>
+            </view>
+        </view>
+    </view>
+    <view style="margin:10rpx;"  wx:if='{{item.ad_display}}'><ad unit-id="adunit-c45c7a9e4bbb0ed5"></ad></view>
+</view>
+<view style="height:80rpx"></view>
+
+

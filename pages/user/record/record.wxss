@@ -1,0 +1,190 @@
+page {
+    background-color: #f2f2f2;
+}
+
+
+.item_wrap {
+    background-color: #fff;
+    padding: 30rpx;
+    margin: 30rpx 30rpx 0rpx 30rpx;
+    border-radius: 20rpx;
+
+
+}
+
+.texrt_title {
+    font-size: 26rpx;
+    padding-bottom: 20rpx;
+    display: -webkit-flex;
+    justify-content: space-between;
+    border-bottom: 1rpx dashed #b0b0b0;
+}
+
+.text_content {
+    padding-top: 20rpx;
+    font-size: 26rpx;
+    color: #b0b0b0;
+}
+
+.codewrap {
+    padding-top:20rpx;
+    display: -webkit-flex;
+    justify-content: space-between;
+
+}
+
+.codesubwrap {
+    height: 200rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 5rpx;
+    width: 140rpx;
+    margin: 10rpx;
+}
+
+.puke_icon {
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 5rpx;
+}
+
+.puke_icon_right {
+    height: 30rpx;
+    width: 30rpx;
+    text-align: right;
+    transform: rotate(180deg);
+    margin-left: 105rpx;
+}
+
+.box_image {
+    height: 45rpx;
+    width: 45rpx;
+    margin: 30rpx;
+}
+
+.box_title {
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    font-size: 26rpx;
+    color: #b0b0b0;
+}
+
+.box_content {
+    font-size: 26rpx;
+    margin: 0rpx 30rpx 30rpx 30rpx;
+    height: 110rpx;
+}
+
+.box_button {
+    text-align: center;
+    width: 270rpx;
+    height: 60rpx;
+    font-size: 26rpx;
+    background-color: #d0554b;
+    color: white;
+}
+
+.ticket{
+    font-size:26rpx;
+}
+
+
+/* 以下是弹出框 */
+.commodity_screen {
+    width: 550rpx;
+    height: 700prx;
+    border-radius: 20rpx;
+    opacity: 1;
+    overflow: hidden;
+    z-index: 100100;
+    position: fixed;
+    top: 28vh;
+    left: 0;
+    margin: 0rpx 100rpx 0rpx 100rpx;
+}
+
+
+.bg_color {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10000rpx;
+}
+
+/* .wrap_show{
+    opacity: 1;
+}
+
+.wrap_notshow{
+    opacity: 0.6;
+    background: gray;
+
+} */
+.modal_wrap {
+    margin: 30rpx;
+    text-align: center;
+}
+
+.title {
+    font-size: 32rpx;
+}
+
+.sub_title {
+    font-size: 24rpx;
+    padding-bottom: 2vh;
+}
+
+.model_image {
+    width: 300rpx;
+    height: 300rpx;
+    border-radius: 5rpx;
+    border: 3rpx solid white;
+}
+
+.model_content {
+    font-size: 24rpx;
+}
+
+.modal_btn_wrap {
+    width: 550rpx;
+    background-color: white;
+}
+
+.button_wrap {
+    display: -webkit-flex;
+    justify-content: space-around;
+    padding: 60rpx 0rpx 40rpx 0rpx;
+}
+
+.button_item {
+    margin: 20rpx;
+    width: 275rpx;
+}
+
+.modal_image {
+    width: 240rpx;
+    height: 240rpx;
+    padding: 0rpx 155rpx 0rpx 155rpx;
+}
+
+.imagesss {
+    background-color: #fff;
+    width: 50rpx;
+    height: 50rpx;
+    padding: 20rpx 20rpx 0rpx 490rpx;
+}
+
+.heihei {
+    font-size: 30rpx;
+    color: black;
+    text-align: center;
+    padding-bottom: 40rpx;
+}
+
+.bottom_ad {
+    position: fixed;
+    bottom: 0rpx;
+    width: 750rpx;
+}

@@ -1,0 +1,16 @@
+
+<view class="wrap">
+    <block wx:for="{{list}}">
+        <view class="item_wrap" bindtap = "navigate" data-key='{{item.key}}' data-title='{{item.name}}' data-post='{{item.post}}'>
+            <image class="image" src="{{item.image}}" mode="aspectFill" lazy-load="true"/>
+            <view class="content_wrap">
+                <view class="title">
+                    {{item.name}}
+                </view>
+                <view class="content">
+                    {{item.content}}
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

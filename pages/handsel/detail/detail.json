@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "奖品详情",
+  "navigationBarBackgroundColor": "#FA3848",
+  "navigationBarTextStyle": "white",
+  "onReachBottomDistance": -50, 
+  "usingComponents": {
+    "cell": "plugin://contactPlugin/cell"
+  }
+}
